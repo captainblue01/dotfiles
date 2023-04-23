@@ -1,7 +1,7 @@
 # Basic settings
 # interpreter for shell commands
 set shell sh
-set ignorecase false
+set hidden! true
 set icons true
 # Draws borders
 set drawbox
@@ -36,6 +36,24 @@ cmd trash ${{
     if gio trash 2>/dev/null; then
         gio trash $fx
     fi
+}}
+
+cmd link %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit 0
+    fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
 }}
 
 cmd rsync &{{
@@ -96,8 +114,7 @@ map <enter> open
 map yy copy
 map pp paste
 map pa rsync
-map pl syslink_soft
-map pL syslink_hard
+map pl link
 map dd cut
 map dD delete
 map dT trash
