@@ -1,0 +1,3 @@
+nvim/.config/lua/lazy-lock.json
+nvim/.config/lua/cspell.json
+qtile/.config/qtile/__pycache__
