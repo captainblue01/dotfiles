@@ -1,7 +1,7 @@
 # Basic settings
 # interpreter for shell commands
 set shell sh
-set ignorecase true
+set ignorecase false
 set icons true
 # Draws borders
 set drawbox
