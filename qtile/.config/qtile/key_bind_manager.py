@@ -81,7 +81,7 @@ APPS = {
         "dropdown_options": {"height": 0.15}
     },
     "music_player": {
-        "name": "spotify",
+        "name": "spotify-launcher",
         "key_cord": [app_chord_pre_key, [[], "m"]],
         "dropdown": True,
         "dropdown_options": {"height": 0.6, "width": 0.5, "x": 0.25}

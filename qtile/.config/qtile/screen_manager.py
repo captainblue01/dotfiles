@@ -129,32 +129,32 @@ class Widgets:
                     ),
                     widget.Sep(
                         foreground=COLORS["inactive"], linewidth=2, size_percent=40, padding=4),
-                    widget.Backlight(
-                        font="JetBrainsMono Nerd Font",
-                        backlight_name="intel_backlight",
-                        change_command="light -S {0}",
-                        step=2.5,
-                        format="盛  {percent:2.0%}"
-                    ),
-                    widget.Sep(
-                        foreground=COLORS["inactive"], linewidth=2, size_percent=40, padding=4),
+                    # widget.Backlight(
+                    #     font="JetBrainsMono Nerd Font",
+                    #     backlight_name="intel_backlight",
+                    #     change_command="light -S {0}",
+                    #     step=2.5,
+                    #     format="盛  {percent:2.0%}"
+                    # ),
+                    # widget.Sep(
+                    #     foreground=COLORS["inactive"], linewidth=2, size_percent=40, padding=4),
                 ]
             ),
             widget.Sep(foreground=COLORS["inactive"],
                        linewidth=2, size_percent=40, padding=4),
-            widget.Battery(
-                battery=0,
-                show_short_text=False,
-                low_percentage=0.3,
-                format="{char} {percent:2.0%}",
-                full_char='',
-                empty_char='',
-                charge_char='',
-                discharge_char='',
-                unknown_char=''
-            ),
-            widget.Sep(foreground=COLORS["inactive"],
-                       linewidth=2, size_percent=40, padding=4),
+            # widget.Battery(
+            #     battery=0,
+            #     show_short_text=False,
+            #     low_percentage=0.3,
+            #     format="{char} {percent:2.0%}",
+            #     full_char='',
+            #     empty_char='',
+            #     charge_char='',
+            #     discharge_char='',
+            #     unknown_char=''
+            # ),
+            # widget.Sep(foreground=COLORS["inactive"],
+            #            linewidth=2, size_percent=40, padding=4),
             widget.PulseVolume(
                 font="JetBrainsMono Nerd Font",
                 fmt="墳 {}",
