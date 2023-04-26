@@ -36,5 +36,6 @@ m.init = function()
       datapath = vim.fn.stdpath("data"),
     },
   })
+  vim.api.nvim_set_keymap("n", "<leader>pa", "<cmd>:AddProject<cr>", { noremap = true, silent = true, desc = "Add Project" })
 end
 return m
