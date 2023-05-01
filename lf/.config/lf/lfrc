@@ -118,6 +118,7 @@ map pl link
 map dd cut
 map dD delete
 map dT trash
+map D delete
 
 map ad :push %mkdir<space>-p<space>
 map af :push %touch<space>
@@ -128,6 +129,7 @@ map gh cd ~
 map gi cd ~/infinity_cloud/
 map gc cd ~/.config
 map gt cd ~/.local/share/Trash/files
+map gr cd ~/repos/
 
 cmd open-with-gui &$@ $fx ## opens with a gui application outside lf client
 cmd open-with-cli $$@ $fx ## opens with a cli application inside lf client

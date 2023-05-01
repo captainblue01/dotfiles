@@ -48,19 +48,25 @@ MOD = "MOD4"  # mod4 = Super / Windows / Command
 app_chord_pre_key = [[MOD], "x"]
 APPS = {
     "terminal": {
-        "name": "alacritty",
+        "name": "kitty",
         "key": [[MOD], "Return"],
         "dropdown": True,
         "dropdown_options": {"opacity": 1.0, "height": 0.25}
     },
     "terminal_new_window": {
-        "name": "alacritty",
+        "name": "kitty",
         "key_cord": [app_chord_pre_key, [[], "Return"]],
         "dropdown": False,
     },
     "file_browser": {
-        "name": "alacritty -e lf",
+        "name": "kitty -e lf",
         "key_cord": [app_chord_pre_key, [[], "f"]],
+        "dropdown": True,
+        "dropdown_options": {"opacity": 1.0, "height": 0.6, "width": 0.5, "x": 0.25}
+    },
+    "nvim": {
+        "name": "kitty -e nvim",
+        "key_cord": [app_chord_pre_key, [[], "n"]],
         "dropdown": True,
         "dropdown_options": {"opacity": 1.0, "height": 0.6, "width": 0.5, "x": 0.25}
     },

@@ -44,7 +44,7 @@ LAYOUTS = [
     layout.Max(margin=MARGINS),
     layout.Bsp(
         margin=MARGINS,
-        margin_on_single=MARGINS*8,
+        margin_on_single=MARGINS,
         fair=False,
         border_width=3,
         grow_amount=GROW_AMOUNT,
