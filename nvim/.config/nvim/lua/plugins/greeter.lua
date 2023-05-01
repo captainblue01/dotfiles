@@ -27,7 +27,7 @@ m.init = function()
   dashboard.section.buttons.val = {
     dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
     -- dashboard.button("SPC e", "פּ Open Explorer", ":NvimTreeToggle<cr>"),
-    dashboard.button("SPC f f", "  Find file", ":Telescope find_files <CR>"),
+    dashboard.button("SPC f f", "  Find file", ":Telescope find_files hidden=true<CR>"),
     dashboard.button("SPC f p", "  Find project", ":Telescope projects <CR>"),
     dashboard.button("SPC f r", "  Recently used files", ":Telescope oldfiles <CR>"),
     dashboard.button("SPC f t", "  Find text", ":Telescope live_grep <CR>"),

@@ -85,7 +85,7 @@ keymap("n", "<leader>rm", ":MarkdownPreview<CR>", { noremap = true, silent = tru
 
 -- Find
 table.insert(group_names, { f = { name = "Find" } })
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find File" })
+keymap("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", { noremap = true, silent = true, desc = "Find File" })
 keymap("n", "<leader>ft", "<cmd>Telescope live_grep<cr>", { noremap = true, silent = true, desc = "Live Grep" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true, silent = true, desc = "Find Help" })
 keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { noremap = true, silent = true, desc = "Open Recent" })
