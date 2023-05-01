@@ -1,3 +1,13 @@
+local function generate_spell_config ()
+  local file = io.open("~./config/nvim/cspell.json", "r")
+  if not file then
+    file = io.open("~./config/nvim/cspell.json", "w")
+    if file then
+      io.close(file)
+    end
+  end
+end
+
 local m = {"jose-elias-alvarez/null-ls.nvim"}
 m.init = function ()
   local null_ls = require("null-ls")
@@ -5,6 +15,8 @@ m.init = function ()
   local diagnostics = null_ls.builtins.diagnostics
   local code_actions = null_ls.builtins.code_actions
 
+  -- Detect if cspell config exists if not it creates blank config
+  generate_spell_config()
   null_ls.setup {
     debug = false,
      fallback_severity = vim.diagnostic.severity.HINT,
