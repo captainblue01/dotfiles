@@ -22,7 +22,7 @@ m.init = function()
       -- Ex: { "~/.cargo/*", ... }
       exclude_dirs = {},
       -- Show hidden files in telescope
-      show_hidden = false,
+      show_hidden = true,
       -- When set to false, you will get a message when project.nvim changes your
       -- directory.
       silent_chdir = true,
@@ -36,6 +36,6 @@ m.init = function()
       datapath = vim.fn.stdpath("data"),
     },
   })
-  vim.api.nvim_set_keymap("n", "<leader>pa", "<cmd>:AddProject<cr>", { noremap = true, silent = true, desc = "Add Project" })
+  vim.api.nvim_set_keymap("n", "<leader>p", "<cmd>:AddProject<cr>", { noremap = true, silent = true, desc = "Add Project" })
 end
 return m

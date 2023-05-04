@@ -21,8 +21,9 @@ cmd on-cd &{{
 # also run at startup
 on-cd
 
-# Previews
-map - $~/.config/lf/draw_img.sh "$f"
+# Make is so you can quit with :q
+cmd q quit
+
 
 # custom commands
 cmd open &{{
@@ -109,6 +110,15 @@ cmd zip ${{
 map y
 map d
 map p
+map c
+map u
+map r
+
+# Clear and unselect commands
+map cc clear
+map uu unselect
+
+
 
 map <enter> open
 map yy copy

@@ -24,8 +24,6 @@ m.init = function ()
           'yaml',
           'typescript',
           'typescriptreact',
-          'lua',
-          'luau',
           'graphql',
           'scss',
           'less',
@@ -37,8 +35,6 @@ m.init = function ()
           'json',
           'javascript',
           'javascriptreact',
-          'css',
-          'python',
         },
         extra_args = {
           '--cache',
