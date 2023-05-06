@@ -1,5 +1,5 @@
-require "options"
 require "keymaps"
+require "options"
 
 -- Installs lazy.nvim if not installed 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

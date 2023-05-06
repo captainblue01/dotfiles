@@ -1,13 +1,7 @@
 # IDS NEOVIM CONFIG
 
-## Dependencies
-
-- nodejs
-- yarn
-- pip
-- npn
-- python
-- lazygit
+## Custom Commands
+- **:wd** _Write and close current buffer_
 
 ## Keymaps
 
@@ -27,6 +21,20 @@
 - **<leader>rp** _Run Python Code_
 - **<leader>rl** _Run Lua Code_
 - **<leader>rm** _Run Markdown Code_
+
+### Harpoon File Navigation
+- **<leader>hh** _Harpoon Quick Menu_
+- **<leader>hm** _Add Current File to Harpoon_
+- **<leader>h1** _Navigate to File 1_
+- **<A-1>** _Navigate to File 1_
+- **<leader>h2** _Navigate to File 2_
+- **<A-2>** _Navigate to File 2_
+- **<leader>h3** _Navigate to File 3_
+- **<A-3>** _Navigate to File 3_
+- **<leader>h4** _Navigate to File 4_
+- **<A-4>** _Navigate to File 4_
+- **<leader>h5** _Navigate to File 5_
+- **<A-5>** _Navigate to File 5_
 
 ### Visual mode
 

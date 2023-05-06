@@ -1,4 +1,3 @@
--- I need to fix my which key config it was breaking my LSP Dialogs for some reason
 local m = { "folke/which-key.nvim" }
 
 m.config = function()

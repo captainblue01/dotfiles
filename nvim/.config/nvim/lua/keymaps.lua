@@ -33,6 +33,23 @@ keymap("n", "<A-j>", "<C-w>j", { noremap = true, silent = true })
 keymap("n", "<A-k>", "<C-w>k", { noremap = true, silent = true })
 keymap("n", "<A-l>", "<C-w>l", { noremap = true, silent = true })
 
+-- Harpoon
+table.insert(group_names, {h = { name = "Harpoon"}})
+keymap("n", "<leader>hm", "<cmd>:lua require('harpoon.mark').add_file()<cr>", { noremap = true, silent = true, desc = "Harpoon Add File" })
+keymap("n", "<leader>hh", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<cr>", { noremap = true, silent = true, desc = "Harpoon Quick Menu" })
+-- Harpoon Navigation
+keymap("n", "<leader>h1", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 1" })
+keymap("n", "<A-1>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 1" })
+keymap("n", "<leader>h2", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 2" })
+keymap("n", "<A-2>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 2" })
+keymap("n", "<leader>h3", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 3" })
+keymap("n", "<A-3>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 3" })
+keymap("n", "<leader>h4", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 4" })
+keymap("n", "<A-4>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 4" })
+keymap("n", "<leader>h5", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 5" })
+keymap("n", "<A-5>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 5" })
+
+
 -- Terminal --
 -- Better terminal navigation
 keymap("t", "<esc>", [[<C-\><C-n>]], { silent = true })
@@ -73,6 +90,7 @@ keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true, desc = 
 keymap("n", "<leader>bk", ":Bdelete<CR>", { noremap = true, silent = true, desc = "Kill Buffer" })
 -- Switch between buffers
 keymap("n", "<leader>bs", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Search Buffers" })
+keymap("n", "<A-TAB>", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Search Buffers" })
 
 -- Opens tree explorer
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", { noremap = true, silent = true })
