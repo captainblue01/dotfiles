@@ -1,4 +1,4 @@
-nvim/.config/lua/lazy-lock.json
-nvim/.config/lua/cspell.json
+nvim/.config/nvim/lua/lazy-lock.json
 qtile/.config/qtile/__pycache__
+qutebrowser/.config/qutebrowser/__pycache__
 lazygit/.config/lazygit/state.yml
