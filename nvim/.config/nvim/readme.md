@@ -92,22 +92,27 @@
 - You can close a directory / node with the **h** key
 
 <pre>
-~/.config/nvim
+.
 ├── init.lua
+├── lazy-lock.json
 ├── lua
 │   ├── keymaps.lua
 │   ├── options.lua
 │   └── plugins
 │       ├── autopairs.lua
+│       ├── buffer-delete.lua
 │       ├── buffer-line.lua
-│       ├── buffer_delete.lua
 │       ├── cmp-lsp.lua
 │       ├── color-highlighting.lua
 │       ├── color-scheme.lua
 │       ├── comments.lua
+│       ├── docstring.lua
+│       ├── folding.lua
 │       ├── greeter.lua
+│       ├── harpoon.lua
 │       ├── impatient.lua
 │       ├── indentline.lua
+│       ├── lf-filemanager.lua
 │       ├── lualine.lua
 │       ├── markdown-preview.lua
 │       ├── null-ls.lua
@@ -117,7 +122,7 @@
 │       ├── telescope.lua
 │       ├── toggle-term.lua
 │       ├── treesitter.lua
-│       ├── undo_tree.lua
+│       ├── undo-tree.lua
 │       └── which-key.lua
 └── readme.md
 </pre>
