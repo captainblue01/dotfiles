@@ -46,7 +46,7 @@ GROUPS = [
     Group("", layout="bsp", screen_affinity=3,
           matches=[Match(wm_class="signal"), Match(wm_class="discord")]),
     Group("", layout="bsp", screen_affinity=2),
-    Group("", layout="bsp", init=False, persist=False),
+    Group("󱇚", layout="bsp", init=False, persist=False),
 ]
 SCRATCHPADS = []
 

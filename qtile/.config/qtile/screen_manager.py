@@ -88,15 +88,17 @@ class Widgets:
             widget.CurrentScreen(
                 active_color=COLORS["font_color"],
                 inactive_color=COLORS["dark"],
-                active_text="ﱣ",
-                inactive_text="ﱤ"
+                active_text="",
+                inactive_text=""
             ),
             widget.WindowName(font=FONT+" Bold", max_chars=38),
         ]
 
         navbar_widgets = [
             widget.GroupBox(
-                fontsize=22,
+                font = FONT,
+                fontsize=20,
+                spacing = 0,
                 highlight_method="line",
                 disable_drag=True,
                 this_current_screen_border=COLORS["highlight"],
@@ -157,7 +159,7 @@ class Widgets:
             #            linewidth=2, size_percent=40, padding=4),
             widget.PulseVolume(
                 font="JetBrainsMono Nerd Font",
-                fmt="墳 {}",
+                fmt="󱄠 {}",
                 scroll_step=3,
                 mouse_callbacks={
                     "Button1": lazy.group[''].dropdown_toggle("audio_control")},

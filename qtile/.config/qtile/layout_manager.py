@@ -51,7 +51,15 @@ LAYOUTS = [
         border_normal=COLORS["dark"],
         border_focus=COLORS["highlight"]
     ),
-    # layout.TreeTab()
+    layout.Columns(
+        margin=MARGINS,
+        margin_on_single=MARGINS,
+        fair=False,
+        border_width=3,
+        grow_amount=GROW_AMOUNT,
+        border_normal=COLORS["dark"],
+        border_focus=COLORS["highlight"]
+        )
     # layout.Floating()
 ]
 FLOATING_LAYOUTS = layout.Floating(
