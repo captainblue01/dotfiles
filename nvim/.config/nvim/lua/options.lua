@@ -9,7 +9,7 @@ o.relativenumber = true                   -- set relative numbered lines
 o.numberwidth = 1                         -- set number column width to 2 {default 4}
 -- General Settings
 o.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
-o.cmdheight = 2                           -- more space in the neovim command line for displaying messages
+o.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 o.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 o.conceallevel = 0                        -- so that `` is visible in markdown files
 o.fileencoding = "utf-8"                  -- the encoding written to a file
