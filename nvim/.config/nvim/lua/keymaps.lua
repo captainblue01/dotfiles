@@ -40,14 +40,14 @@ keymap("n", "<leader>hh", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<c
 -- Harpoon Navigation
 keymap("n", "<leader>h1", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 1" })
 keymap("n", "<A-1>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 1" })
-keymap("n", "<leader>h2", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 2" })
-keymap("n", "<A-2>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 2" })
-keymap("n", "<leader>h3", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 3" })
-keymap("n", "<A-3>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 3" })
-keymap("n", "<leader>h4", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 4" })
-keymap("n", "<A-4>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 4" })
-keymap("n", "<leader>h5", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 5" })
-keymap("n", "<A-5>", "<cmd>:lua require('harpoon.ui').nav_file(1)<cr>", { noremap = true, silent = true, desc = "Navigate to file 5" })
+keymap("n", "<leader>h2", "<cmd>:lua require('harpoon.ui').nav_file(2)<cr>", { noremap = true, silent = true, desc = "Navigate to file 2" })
+keymap("n", "<A-2>", "<cmd>:lua require('harpoon.ui').nav_file(2)<cr>", { noremap = true, silent = true, desc = "Navigate to file 2" })
+keymap("n", "<leader>h3", "<cmd>:lua require('harpoon.ui').nav_file(3)<cr>", { noremap = true, silent = true, desc = "Navigate to file 3" })
+keymap("n", "<A-3>", "<cmd>:lua require('harpoon.ui').nav_file(3)<cr>", { noremap = true, silent = true, desc = "Navigate to file 3" })
+keymap("n", "<leader>h4", "<cmd>:lua require('harpoon.ui').nav_file(4)<cr>", { noremap = true, silent = true, desc = "Navigate to file 4" })
+keymap("n", "<A-4>", "<cmd>:lua require('harpoon.ui').nav_file(4)<cr>", { noremap = true, silent = true, desc = "Navigate to file 4" })
+keymap("n", "<leader>h5", "<cmd>:lua require('harpoon.ui').nav_file(5)<cr>", { noremap = true, silent = true, desc = "Navigate to file 5" })
+keymap("n", "<A-5>", "<cmd>:lua require('harpoon.ui').nav_file(5)<cr>", { noremap = true, silent = true, desc = "Navigate to file 5" })
 
 
 -- Terminal --

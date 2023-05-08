@@ -1,5 +1,3 @@
-local m = {"ThePrimeagen/harpoon", depenencies = {"nvim-lua/plenary.nvim"}}
-
- 
+local m = {"ThePrimeagen/harpoon", dependencies = {"nvim-lua/plenary.nvim"}}
 
 return m
