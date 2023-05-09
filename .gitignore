@@ -1,4 +1,8 @@
 nvim/.config/nvim/lua/lazy-lock.json
 qtile/.config/qtile/__pycache__
-qutebrowser/.config/qutebrowser/__pycache__
+qutebrowser/.config/qutebrowser/__pycache__/
+qutebrowser/.config/qutebrowser/.idea/
+qutebrowser/.config/qutebrowser/bookmarks/
+qutebrowser/.config/qutebrowser/quickmarks
 lazygit/.config/lazygit/state.yml
+
