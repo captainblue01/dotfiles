@@ -3,7 +3,7 @@
 ![](https://i.imgur.com/wdroZeY.png)  
 
 ## Dependencies
-> Below instal commands are asuming you are running arch and have pip installed
+> Below install commands are asuming you are running arch and have pip installed
  - **adblock** `pip install adblock`
  - **JetBrainsMono Nerd Font** `sudo pacman -S ttf-jetbrains-mono-nerd`
  - **Neovim/nvim** `sudo pacman -S nvim`
