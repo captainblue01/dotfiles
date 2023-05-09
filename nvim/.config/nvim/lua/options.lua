@@ -49,5 +49,5 @@ o.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 -- write and save current buffer
-vim.cmd('cnoreabbrev wd w\\|bd')
+vim.cmd('cnoreabbrev wd w\\|Bdelete')
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

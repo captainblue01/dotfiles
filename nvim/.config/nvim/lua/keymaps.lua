@@ -88,6 +88,7 @@ keymap("n", "<A-p>", ":bnext<CR>", { noremap = true, silent = true, desc = "Next
 keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
 -- Close buffer
 keymap("n", "<leader>bk", ":Bdelete<CR>", { noremap = true, silent = true, desc = "Kill Buffer" })
+keymap("n", "<A-c>", ":Bdelete<CR>", { noremap = true, silent = true, desc = "Kill Buffer" })
 -- Switch between buffers
 keymap("n", "<leader>bs", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Search Buffers" })
 keymap("n", "<A-TAB>", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Search Buffers" })
