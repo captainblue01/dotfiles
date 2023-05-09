@@ -1,0 +1,70 @@
+# IDS QUTEBROWSER CONFIG
+
+![](https://i.imgur.com/wdroZeY.png)  
+
+## Dependencies
+> Below instal commands are asuming you are running arch and have pip installed
+ - **adblock** `pip install adblock`
+ - **JetBrainsMono Nerd Font** `sudo pacman -S ttf-jetbrains-mono-nerd`
+ - **Neovim/nvim** `sudo pacman -S nvim`
+ - **lf** `sudo pacman -S lf`
+ - **yt-dlp** `sudo pacman -S yt-dlp`
+
+### Terminals
+> I use both Kitty and Alacritty I prefer kitty for file management with lf because of image previews, But prefer alacritty for most other uses.
+> Easy to change terminal settings under config.py
+ - **Alacritty** `sudo pacman -S alacritty`
+ - **Kitty** `sudo pacman -S kitty`
+
+## Keymaps
+> Default Keybinds
+![](https://raw.githubusercontent.com/qutebrowser/qutebrowser/master/doc/img/cheatsheet-big.png)
+
+### Custom Keymaps
+#### Bindings for normal mode
+##### Scroll
+- **j** _Scroll Up 100 pixels_
+- **k** _Scroll Down 100 pixels_
+##### Zoom
+- **\<Ctrl-+>** _Zoom In_
+- **\<Ctrl-->** _Zoom Out_
+##### Tab Navigation
+- **\<Alt-p>** _Next Tab_
+- **\<Alt-o>** _Previous Tab_
+- **\<Ctrl-Tab>** _Next Tab_
+- **\<Ctrl-Shift-Tab>** _Previous Tab_
+- **\<Alt-c>** _Close Tab_
+##### For synergy between qutebrowser and other browsers 
+- **\<Alt-d>** _Open the open prompt_
+##### Open hints in rapid mode
+- **\<Alt-f>** _Open Hints in Rapid Mode_
+##### Open videos using umpv script
+- **xv** _Open hint to open custom umpv script_
+- **xV** _Open hint in rapid mode to open custom umpv script_
+- **xc** _Open custom umpv script_
+##### Open Current Pages in other browsers
+- **xb** _Open current tab in Brave_
+- **xf** _Open current tab in Firefox_
+- **\<Space>xb** _Open current tab in Brave_
+- **\<Space>xf** _Open current tab in Firefox_
+##### Downloads
+- **\<Space>di** _Open hint to download Images_ 
+- **\<Space>dv** _Open hint to download Videos_ 
+- **\<Space>dp** _Open hint to download Page_ 
+   
+#### Bindings for insert mode
+- **\<Alt-e>** _Open Text editor with the contetns of current text box_ 
+
+#### Bindings for hint mode
+- **\<Shift-F>** _Switch hint mode to open in new tab_
+- **\<Shift-r>** _Switch hint mode to rapid mode_
+- **\<Alt-r>**  _Switch hint mode to rapid mode_
+
+## Tips & Tricks
+### Clipboard
+>You can :set content.javascript.clipboard access to allow this globally (not recommended!), or :set -u some.domain content.javascript.clipboard access if you want to limit the setting to some.domain.
+
+## Links
+- https://qutebrowser.org/doc/faq.html
+- https://qutebrowser.org/doc/help/configuring.html
+- https://qutebrowser.org/doc/help/settings.html
