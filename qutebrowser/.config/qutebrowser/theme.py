@@ -48,9 +48,10 @@ def infinity_dark(c):
     c.colors.completion.category.border.bottom = COLORS["highlight"]
 
     # Selection Colors
-    c.colors.completion.item.selected.bg = COLORS["text"]
-    c.colors.completion.item.selected.border.top = COLORS["text"]
-    c.colors.completion.item.selected.border.bottom = COLORS["text"]
+    c.colors.completion.item.selected.bg = COLORS["grey"]
+    c.colors.completion.item.selected.border.top = COLORS["grey"]
+    c.colors.completion.item.selected.border.bottom = COLORS["grey"]
+    c.colors.completion.item.selected.fg = COLORS["text"]
     c.colors.completion.match.fg = COLORS["magenta"]
 
     # Download colors

@@ -17,9 +17,9 @@ def keymaps(config):
     # Open hints in rapid mode
     config.bind("<Alt-f>", 'hint --rapid links tab-bg') # open hints in rapid mode
     # Open videos using umpv script
-    config.bind('xv', "hint links spawn ~/.config/qutebrowser/scripts/umpv.py {hint-url} --ytdl-format=best") # Open hint to open video in custom umpv script
-    config.bind('xc', "spawn ~/.config/qutebrowser/scripts/umpv.py {url} --ytdl-format=best") # Open hint to open video in custom umpv script
-    config.bind('xV', "hint --rapid links spawn ~/.config/qutebrowser/scripts/umpv.py {hint-url} --ytdl-format=best") # Open rapid hint to open video in custom umpv script
+    config.bind('xv', "hint links spawn ~/.config/qutebrowser/userscripts/umpv.py {hint-url} --ytdl-format=best") # Open hint to open video in custom umpv script
+    config.bind('xc', "spawn ~/.config/qutebrowser/userscripts/umpv.py {url} --ytdl-format=best") # Open hint to open video in custom umpv script
+    config.bind('xV', "hint --rapid links spawn ~/.config/qutebrowser/userscripts/umpv.py {hint-url} --ytdl-format=best") # Open rapid hint to open video in custom umpv script
     # Open Current Pages in other browsers
     config.bind('xb', "spawn brave {url}") # Open current tab in Brave
     config.bind('xf', "spawn firefox {url}") # Open current tab in Firefox

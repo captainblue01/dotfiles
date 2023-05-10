@@ -15,6 +15,12 @@
 > Easy to change terminal settings under config.py
  - **Alacritty** `sudo pacman -S alacritty`
  - **Kitty** `sudo pacman -S kitty`
+### Bitwarden integration
+>WARNING: The login details are viewable as plaintext in qutebrowser's debug log (qute://log) and might be shared if you decide to submit a crash report!
+This config comes with the "qute-bitwarden" userscript and has the following Dependencies
+- **tldextract** `pip install tldextract`
+- **pyperclip** `pip install pyperclip`(optional Python module, used for TOTP codes)
+- **bitwarden-cli** `sudo pacman -S bitwarden-cli`
 
 ## Keymaps
 > Default Keybinds
