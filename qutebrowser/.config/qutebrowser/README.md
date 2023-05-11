@@ -29,8 +29,8 @@ This config comes with the "qute-bitwarden" userscript and has the following Dep
 ### Custom Keymaps
 #### Bindings for normal mode
 ##### Scroll
-- **j** _Scroll Up 100 pixels_
-- **k** _Scroll Down 100 pixels_
+- **J** _Scroll Up 500 pixels_
+- **K** _Scroll Down 500 pixels_
 ##### Zoom
 - **\<Ctrl-+>** _Zoom In_
 - **\<Ctrl-->** _Zoom Out_
@@ -51,15 +51,20 @@ This config comes with the "qute-bitwarden" userscript and has the following Dep
 ##### Open Current Pages in other browsers
 - **xb** _Open current tab in Brave_
 - **xf** _Open current tab in Firefox_
-- **\<Space>xb** _Open current tab in Brave_
-- **\<Space>xf** _Open current tab in Firefox_
 ##### Downloads
-- **\<Space>di** _Open hint to download Images_ 
-- **\<Space>dv** _Open hint to download Videos_ 
-- **\<Space>dp** _Open hint to download Page_ 
-   
+- **\xdi** _Open hint to download Images_ 
+- **\xdv** _Open hint to download Videos_ 
+- **\xdp** _Open hint to download Page_ 
+#### Enter Pass through mode
+- **\<Alt-v>**  _Switch to Passthrough mode_
+
 #### Bindings for insert mode
 - **\<Alt-e>** _Open Text editor with the contetns of current text box_ 
+##### Tab Navigation for insert mode
+- **\<Alt-p>** _Next Tab_
+- **\<Alt-o>** _Previous Tab_
+- **\<Ctrl-Tab>** _Next Tab_
+- **\<Ctrl-Shift-Tab>** _Previous Tab_
 
 #### Bindings for hint mode
 - **\<Shift-F>** _Switch hint mode to open in new tab_

@@ -20,22 +20,28 @@ c.statusbar.show = "in-mode"
 
 # Darkmode
 c.colors.webpage.bg = theme.COLORS["dark"]
-c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.algorithm = "lightness-cielab"
-c.colors.webpage.darkmode.policy.images = "never"
+# Disabled the chromium engine darkmode
+c.colors.webpage.darkmode.enabled = False
+# c.colors.webpage.darkmode.algorithm = "lightness-cielab"
+# c.colors.webpage.darkmode.policy.images = "never"
+c.colors.webpage.preferred_color_scheme = "dark"
 
 # General Settings
-c.confirm_quit = ["downloads"]  # Require a confirmation before quitting the application. [always, downloads, multiple-tabs, never]
+c.confirm_quit = [
+    "downloads"
+]  # Require a confirmation before quitting the application. [always, downloads, multiple-tabs, never]
 c.content.autoplay = False  # Automatically start playing `<video>` elements.
-c.auto_save.session = True  # Always Restore session. Without this option set, `:wq` needs to be used
+c.auto_save.session = False  # Always Restore session. Without this option set, `:wq` needs to be used
+
 c.content.prefers_reduced_motion = True  # Request websites to minimize non-essentials animations and motion. This results in the `prefers-reduced-motion` CSS media query to evaluate to `reduce` (rather than `no-preference`).
 c.scrolling.smooth = False
 c.keyhint.delay = 200
 
 # Mode Switching Settings
 c.input.insert_mode.auto_enter = True  # Enter insert mode if an editable element is clicked.
-c.input.insert_mode.auto_leave = True  # Leave insert mode if a non-editable element is clicked.
+c.input.insert_mode.auto_leave = False  # Leave insert mode if a non-editable element is clicked.
 c.input.insert_mode.auto_load = True  # Automatically enter insert mode if an editable element is focused after loading the page.
+c.tabs.mode_on_change = "restore" # Valid Options are "normal" "restore" "persist"
 
 # Downloads
 c.downloads.location.prompt = True  # Prompt the user for the download location. If set to false, `downloads.location.directory` will be used.
@@ -47,23 +53,47 @@ c.hints.chars = "asdfghjkl"  # Characters used for hint strings.
 
 # Start Page
 c.url.default_page = "https://start.duckduckgo.com/"  # Page to open if :open -t/-b/-w is used without URL. Use `about:blank` for a blank page.
-c.url.start_pages = ['https://start.duckduckgo.com'] # Page(s) to open at the start.
+c.url.start_pages = ["https://start.duckduckgo.com"]  # Page(s) to open at the start.
 c.url.open_base_url = True  # Open base URL of the searchengine if a searchengine shortcut is invoked without parameters.
 
 # Tabs
 c.tabs.last_close = "default-page"  # ignore: Don't do anything, blank: Load a blank page, startpage: Load the start page, default-page: Load the default page, close: Close the window.
 c.tabs.mousewheel_switching = False  # Switch between tabs using the mouse wheel.
 c.tabs.select_on_remove = "next"  # prev: Select the tab which came before the closed one (left in horizontal, above in vertical), next: Select the tab which came after the closed one (right in horizontal, below in vertical), last-used: Select the previously selected tab.
-c.tabs.tabs_are_windows = False  # Open a new window for every tab. NOTE: Might be helpful if looking at switching to suckless tabbed
+c.tabs.tabs_are_windows = False  # Open a new window for every tab.
 
 # File Dialog
-c.fileselect.handler = 'external'
-c.fileselect.folder.command = ['kitty','--class=dialog', '-e', 'lf', '--selection-path={}']
-c.fileselect.multiple_files.command = ['kitty','--class=dialog', '-e', 'lf', '--selection-path={}']
-c.fileselect.single_file.command = ['kitty', '--class=dialog', '-e', 'lf', '--selection-path={}']
+c.fileselect.handler = "external"
+c.fileselect.folder.command = [
+    "kitty",
+    "--class=dialog",
+    "-e",
+    "lf",
+    "--selection-path={}",
+]
+c.fileselect.multiple_files.command = [
+    "kitty",
+    "--class=dialog",
+    "-e",
+    "lf",
+    "--selection-path={}",
+]
+c.fileselect.single_file.command = [
+    "kitty",
+    "--class=dialog",
+    "-e",
+    "lf",
+    "--selection-path={}",
+]
 
 # AdBlock
 c.content.blocking.enabled = True
+# Adblock lists
+c.content.blocking.adblock.lists = [
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters-2023.txt",
+    "https://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock.txt",
+    "https://easylist.to/easylist/easylist.txt",
+]
 # Which method of blocking ads should be used.
 #   - auto: Use Brave's ABP-style adblocker if available, host blocking otherwise
 #   - adblock: Use Brave's ABP-style adblocker
@@ -72,8 +102,25 @@ c.content.blocking.enabled = True
 c.content.blocking.method = "both"
 
 # Zoom
-c.zoom.default = '110%' # Default zoom level.
-c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%'] # Available zoom levels.
+c.zoom.default = "110%"  # Default zoom level.
+c.zoom.levels = [
+    "25%",
+    "33%",
+    "50%",
+    "67%",
+    "75%",
+    "90%",
+    "100%",
+    "110%",
+    "125%",
+    "150%",
+    "175%",
+    "200%",
+    "250%",
+    "300%",
+    "400%",
+    "500%",
+]  # Available zoom levels.
 
 # Search Egnines
 c.url.searchengines = {
@@ -100,5 +147,4 @@ c.editor.command = [
     "{file}",
     "-c",
     "normal {line}G{column0}1",
-]  
-
+]
