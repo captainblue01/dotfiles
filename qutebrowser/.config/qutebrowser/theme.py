@@ -14,7 +14,7 @@ def infinity_dark(c):
     c.prompt.radius = 0 # Rounding radius (in pixels) for the edges of prompts.
 
     c.fonts.default_size = "10pt"
-    c.fonts.default_family = "JetBrainsMono Nerd Font Mono"
+    c.fonts.default_family = "JetBrainsMono NFM"
 
     # Height (in pixels or as percentage of the window) of the completion.
     # Type: PercOrInt
@@ -63,8 +63,13 @@ def infinity_dark(c):
     # Status Bar Colors
     c.colors.statusbar.command.fg = COLORS["text"]
     c.colors.statusbar.command.bg = COLORS["darker"]
-    c.colors.statusbar.insert.fg = COLORS["text"]
+    c.colors.statusbar.insert.fg = COLORS["darker"]
     c.colors.statusbar.insert.bg = COLORS["highlight"]
+    c.colors.statusbar.passthrough.fg = COLORS["darker"]
+    c.colors.statusbar.passthrough.bg = COLORS["green"]
+    c.colors.statusbar.caret.fg = COLORS["darker"]
+    c.colors.statusbar.caret.bg = COLORS["magenta"]
+
     c.colors.statusbar.url.fg = COLORS["highlight"]
     c.colors.statusbar.url.hover.fg = COLORS["magenta"]
     c.colors.statusbar.url.success.https.fg = COLORS["highlight"]

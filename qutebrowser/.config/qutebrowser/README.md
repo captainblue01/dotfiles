@@ -44,10 +44,10 @@ This config comes with the "qute-bitwarden" userscript and has the following Dep
 - **\<Alt-d>** _Open the open prompt_
 ##### Open hints in rapid mode
 - **\<Alt-f>** _Open Hints in Rapid Mode_
-##### Open videos using umpv script
-- **xv** _Open hint to open custom umpv script_
-- **xV** _Open hint in rapid mode to open custom umpv script_
-- **xc** _Open custom umpv script_
+##### Open videos using mpv script
+- **xv** _Open hint to open custom mpv script_
+- **xV** _Open hint in rapid mode to open custom mpv script_
+- **xc** _Open custom mpv script_
 ##### Open Current Pages in other browsers
 - **xb** _Open current tab in Brave_
 - **xf** _Open current tab in Firefox_
