@@ -31,6 +31,11 @@ m.init = function()
     view = {
       width = 30,
     },
+    git = {
+      enable = true,
+      ignore = false,
+      timeout = 400,
+    },
     renderer = {
       group_empty = true,
       highlight_git = true,
