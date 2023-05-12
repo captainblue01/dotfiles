@@ -20,7 +20,5 @@ chmod +x ~/.config/qtile/autostart.sh
 chmod +x ~/.config/qtile/refresh_system.sh.sh
 chmod +x ~/.config/lf/lf_kitty_clean
 chmod +x ~/.config/lf/lf_kitty_preview
-chmod +x ~/.config/qutebrowser/userscripts/umpv.py
-chmod +x ~/.config/qutebrowser/userscripts/qute-bitwarden.py
 ```
 
