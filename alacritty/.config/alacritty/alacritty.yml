@@ -7,8 +7,8 @@ dynamic_title: true
 colors:
   # Default colors
   primary:
-    background: '0x28292A'
-    foreground: '0xF8F8F2'
+    background: '0x202122'
+    foreground: '0xF1F1E4'
 
   # Cursor colors
   #
@@ -20,23 +20,23 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x202122'
-    red:     '0xE06C75'
-    green:   '0x98C379'
-    yellow:  '0xE5C07B'
-    blue:    '0x37AAD1'
-    magenta: '0xC678DD'
-    cyan:    '0x56B6C2'
-    white:   '0xF8F8F2'
+    black:   '0x191A1A'
+    red:     '0xE84545'
+    green:   '0x558E2E'
+    yellow:  '0xFACC00'
+    blue:    '0x2494BA'
+    magenta: '0xC054BC'
+    cyan:    '0x2DCDCD'
+    white:   '0xF1F1E4'
 
   # Bright colors
   bright:
-    black:   '0x28292A'
-    red:     '0xCB444F'
-    green:   '0x70AA46'
-    yellow:  '0xB18A41'
-    blue:    '0x167EA6'
-    magenta: '0x9F43BB'
-    cyan:    '0x35ACBB'
-    white:   '0xF8F8F2'
+    black:   '0x202122'
+    red:     '0xF56666'
+    green:   '0x7EC44F'
+    yellow:  '0xFFDE0A'
+    blue:    '0x37AAD1'
+    magenta: '0xC76BC4'
+    cyan:    '0x42D7D4'
+    white:   '0xF1F1E4'
 

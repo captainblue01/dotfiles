@@ -70,7 +70,5 @@ def keymaps(config):
     config.bind('<Alt-p>', 'tab-next', mode="passthrough") # Next Tab
     config.bind('<Alt-o>', 'tab-prev', mode="passthrough") # Previous Tab
     config.bind('<Alt-c>', 'tab-close', mode="passthrough") # Close tab
-    config.bind('<Alt-o>', 'set-cmd-text -s :open', mode="passthrough") # open open prompt
-    config.bind('<Alt-O>', 'set-cmd-text -s :open -t', mode="passthrough") # open open prompt
     config.bind('<Alt-d>', 'set-cmd-text -s :open', mode="passthrough") # open open prompt
 

@@ -17,9 +17,10 @@ keymaps.keymaps(config)
 # Make Tabs & Status Bar Hide Automatically
 c.tabs.show = "multiple"
 c.statusbar.show = "in-mode"
+c.scrolling.bar = "when-searching"
 
 # Darkmode
-c.colors.webpage.bg = theme.COLORS["dark"]
+# c.colors.webpage.bg = theme.COLORS["dark"]
 # Disabled the chromium engine darkmode
 c.colors.webpage.darkmode.enabled = False
 # c.colors.webpage.darkmode.algorithm = "lightness-cielab"
@@ -128,6 +129,7 @@ c.url.searchengines = {
     "ddg": "https://duckduckgo.com/?q={}",
     "google": "https://www.google.com/search?q={}",
     "youtube": "https://www.youtube.com/results?search_query={}",
+    "mk": "https://www.miltonandking.com/au/search/?q={}"
 }
 
 ## Which categories to show (in which order) in the :open completion., searchengines, quickmarks, bookmarks, history, filesystem

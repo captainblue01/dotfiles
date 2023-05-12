@@ -1,13 +1,13 @@
 COLORS = {
     "highlight": "#2494BA",
-    "urgent": "#AC1717",
-    "text": "#F8F8F2",
-    "grey": "#515D66",
-    "dark": "#28292A",
-    "darker": "#202122",
-    "magenta": "#C678DD",
-    "orange": "#E5C07B",
-    "green": "#98c379",
+    "urgent": "#E84545",
+    "text": "#F1F1E4",
+    "grey": "#575C60",
+    "dark": "#202122",
+    "darker": "#191A1A",
+    "magenta": "#C054BC",
+    "orange": "#F1A727",
+    "green": "#5B9E2E",
 }
 
 def infinity_dark(c):
@@ -70,9 +70,9 @@ def infinity_dark(c):
     c.colors.statusbar.caret.fg = COLORS["darker"]
     c.colors.statusbar.caret.bg = COLORS["magenta"]
 
-    c.colors.statusbar.url.fg = COLORS["highlight"]
+    c.colors.statusbar.url.fg = COLORS["text"]
     c.colors.statusbar.url.hover.fg = COLORS["magenta"]
-    c.colors.statusbar.url.success.https.fg = COLORS["highlight"]
+    c.colors.statusbar.url.success.https.fg = COLORS["text"]
     c.colors.statusbar.url.success.http.fg = COLORS["orange"]
     c.colors.statusbar.url.warn.fg = COLORS["urgent"]
 
@@ -83,3 +83,5 @@ def infinity_dark(c):
     c.colors.tabs.even.bg = COLORS["dark"]
     c.colors.tabs.selected.odd.bg = COLORS["highlight"]
     c.colors.tabs.selected.even.bg = COLORS["highlight"]
+    c.colors.tabs.selected.odd.fg = COLORS["darker"]
+    c.colors.tabs.selected.even.fg = COLORS["darker"]
