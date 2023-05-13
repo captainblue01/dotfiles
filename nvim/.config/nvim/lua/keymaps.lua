@@ -95,6 +95,7 @@ keymap("n", "<A-TAB>", "<cmd>Telescope buffers<cr>", { noremap = true, silent = 
 
 -- Opens tree explorer
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", { noremap = true, silent = true })
+keymap("n", "<leader>E", "<cmd>lua require('lf').start()<cr>", { noremap = true, silent = true, desc = "Open File Manager" })
 
 -- Run Code
 table.insert(group_names, { r = { name = "Run Code" } })

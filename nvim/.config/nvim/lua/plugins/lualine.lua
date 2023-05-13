@@ -3,16 +3,16 @@ local m = {
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 local colors = {
-  bg = "#28292A",
-  bg1 = "#202122",
+  bg = "#202122",
+  bg1 = "#191A1A",
   fg = "#ECF0F3",
-  red = "#AC1717",
-  green = "#8fb573",
-  yellow = "#dbb671",
+  red = "#E84545",
+  green = "#5B9E2E",
+  yellow = "#FFDE0A",
   blue = "#2494BA",
-  purple = "#bb70d2",
-  cyan = "#51a8b3",
-  gray = "#515D66",
+  purple = "#C054BC",
+  cyan = "#42D7D4",
+  gray = "#3C3F41",
 }
 local onedark_lualine_theme = {
   inactive = {

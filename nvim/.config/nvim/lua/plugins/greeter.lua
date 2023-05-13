@@ -14,6 +14,8 @@ m.init = function()
     [[  \:. _    \ \\::___\/_\:\ \ \ \ \:\_/.:\ \ _\::\ \__\:.\-/\  \ \ ]],
     [[   \. \`-\  \ \\:\____/\\:\_\ \ \ \ ..::/ //__\::\__/\\. \  \  \ \]],
     [[    \__\/ \__|/ \_____\/ \_____\/  \___/_/ \________\/ \__\/ \__\/]],
+    [[]],
+    [[]],
   }
   --   dashboard.section.header.val = {
   -- [[ _   _  _____  _____  _   _  _____ ___  ___]],
@@ -25,15 +27,14 @@ m.init = function()
   -- }
 
   dashboard.section.buttons.val = {
-    dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-    -- dashboard.button("SPC e", "פּ Open Explorer", ":NvimTreeToggle<cr>"),
-    dashboard.button("f f", "  Find file", ":Telescope find_files hidden=true<CR>"),
-    dashboard.button("f p", "  Find project", ":Telescope projects <CR>"),
-    dashboard.button("f r", "  Recently used files", ":Telescope oldfiles <CR>"),
-    dashboard.button("f t", "  Find text", ":Telescope live_grep <CR>"),
-    -- dashboard.button("c", "  Configuration", ":e $MYVIMRC <CR>"),
-    dashboard.button("u", "  Update plugins", "<cmd>TSUpdate<CR><cmd>MasonUpdate<CR><CMD>Lazy update<CR>"),
-    dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+    dashboard.button("e", "    New file", ":ene <BAR> startinsert <CR>"),
+    dashboard.button("E", "󱏒    Open File Manager", "<cmd>lua require('lf').start()<cr>"),
+    dashboard.button("f f", "    Find file", ":Telescope find_files hidden=true<CR>"),
+    dashboard.button("f p", "    Find project", ":Telescope projects <CR>"),
+    dashboard.button("f r", "󰁯    Recently used files", ":Telescope oldfiles <CR>"),
+    dashboard.button("f t", "    Find text", ":Telescope live_grep <CR>"),
+    dashboard.button("u", "    Update plugins", "<cmd>TSUpdate<CR><cmd>MasonUpdate<CR><CMD>Lazy update<CR>"),
+    dashboard.button("q", "    Quit Neovim", ":qa<CR>"),
   }
 
   local function footer()

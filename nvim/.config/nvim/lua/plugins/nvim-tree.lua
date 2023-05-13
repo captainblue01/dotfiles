@@ -38,7 +38,7 @@ m.init = function()
     },
     renderer = {
       group_empty = true,
-      highlight_git = true,
+      highlight_git = false,
       icons = {
         show = {
           file = true,

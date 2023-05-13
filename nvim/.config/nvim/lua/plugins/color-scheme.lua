@@ -32,14 +32,24 @@ m.opts = {
   },
   -- Custom Highlights --
   colors = {
-    bg0 = "#28292A", -- Text Editor background
-    bg1 = "#202122", -- Text Highlight
-    bg2 = "#202122", -- Bottom Status Bar
-    bg3 = "#515D66", -- Dividers
-    blue = "#2494BA",
+    bg0 = "#202122", -- Text Editor background
+    bg1 = "#191A1A", -- Text Highlight
+    bg2 = "#191A1A", -- Bottom Status Bar
+    bg3 = "#575C60", -- Dividers
     bg_d = "#202122", -- Test
-    fg = "#ECF0F3",
-    grey = "#515D66", -- Comments
+    fg = "#F1F1E4",
+    grey = "#5E6368", -- Comments
+    purple = "#C76BC4",
+		green = "#7EC44F",
+		orange = "#F1A727",
+		blue = "#37AAD1",
+		yellow = "#FFDE0A",
+		cyan = "#42D7D4",
+		red = "#F56666",
+		dark_cyan = "#2DCDCD",
+		dark_red = "#E84545",
+		dark_yellow = "#FACC00",
+		dark_purple = "#C054BC",
   },                -- Override default colors
   highlights = { },  -- Override highlight groups
   -- Plugins Config --

@@ -128,8 +128,7 @@ c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "ddg": "https://duckduckgo.com/?q={}",
     "google": "https://www.google.com/search?q={}",
-    "youtube": "https://www.youtube.com/results?search_query={}",
-    "mk": "https://www.miltonandking.com/au/search/?q={}"
+    "yt": "https://www.youtube.com/results?search_query={}",
 }
 
 ## Which categories to show (in which order) in the :open completion., searchengines, quickmarks, bookmarks, history, filesystem
