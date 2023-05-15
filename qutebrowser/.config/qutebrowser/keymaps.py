@@ -41,7 +41,7 @@ def keymaps(config):
    
     # Downloads
     config.bind('xdi', "hint images download") # Open hint to download images
-    config.bind('xdv', 'hint links spawn alacritty -class dialog -e yt-dlp {hint-url}') # Open hint to download video
+    config.bind('xdv', 'hint links spawn alacritty --class dialog -e yt-dlp {hint-url}') # Open hint to download video
     config.bind('xdp', 'download') # Open hint to download page
     
     # Bitwarden Keybinds
