@@ -112,7 +112,6 @@ map d
 map p
 map c
 map u
-map r
 
 # Clear and unselect commands
 map cc clear
