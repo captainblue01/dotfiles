@@ -2,6 +2,7 @@
 
 # List of packages from the official repositories
 official_packages=(
+  fish
   gnome-themes-extra
   file-roller
   tldr
@@ -110,7 +111,6 @@ lf_official_packages=(
 # AUR
   lf_aur_packages=(
   xapp-epub-thumbnailer
-  spotify
   wkhtmltopdf-static
 )
 
@@ -124,17 +124,6 @@ aur_packages=(
   brave-bin 
   cp-p-git
 )
-
-
-# Remove packages
-# Loop through each package and remove it if installed
-for package in "${packages_to_remove[@]}"; do
-  if pacman -Q $package > /dev/null 2>&1; then
-    sudo pacman -Rns -u --noconfirm $package
-  else
-    echo "Package $package is not installed."
-  fi
-done
 
 # Install packages from the official repositories
 sudo pacman -Syu --noconfirm --needed "${official_packages[@]}"
