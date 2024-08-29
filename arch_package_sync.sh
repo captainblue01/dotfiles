@@ -2,6 +2,8 @@
 
 # List of packages from the official repositories
 official_packages=(
+  font-manager
+  libreoffice-fresh
   fish
   gnome-themes-extra
   file-roller
