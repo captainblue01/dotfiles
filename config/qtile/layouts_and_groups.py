@@ -91,7 +91,7 @@ class Groups:
             # System dropdowns
             DropDown(
                 "bluetooth",
-                "blueman-manager",
+                "blueberry",
                 **default_dropdown_settings,
             ),
             DropDown(

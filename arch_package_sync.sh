@@ -5,6 +5,7 @@ official_packages=(
   font-manager
   libreoffice-fresh
   fish
+  extra/jre-openjdk 
   gnome-themes-extra
   file-roller
   tldr
@@ -84,11 +85,11 @@ official_packages=(
   udiskie 
   unrar 
   unzip 
-  vim 
   xdg-utils 
   xdotool
   xorg-server 
   xorg-xinit 
+  spotifyd
   xsel 
   yt-dlp 
   zip 
@@ -108,7 +109,6 @@ lf_official_packages=(
   gnumeric 
   fzf
   trash-cli
-  spotify-launcher
 )
 # AUR
   lf_aur_packages=(
@@ -125,6 +125,11 @@ aur_packages=(
   ueberzugpp
   brave-bin 
   cp-p-git
+)
+packages_to_remove=(
+  spotify
+  spotify-launcher
+  vim 
 )
 
 # Install packages from the official repositories
