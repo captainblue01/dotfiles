@@ -2,6 +2,7 @@
 
 # List of packages from the official repositories
 official_packages=(
+  fuzzel
   font-manager
   libreoffice-fresh
   fish
