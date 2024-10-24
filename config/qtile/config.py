@@ -89,7 +89,7 @@ reconfigure_screens = True
 auto_minimize = False
 dgroups_key_binder = None
 dgroups_app_rules = []
-wmname = "Qtile"  # This is false this is just to help with java UI tookits
+wmname = "LG3D"  # This is false this is just to help with java UI tookits
 
 # Screens
 try:
