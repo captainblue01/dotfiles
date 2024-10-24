@@ -5,6 +5,7 @@ end
 
 # disable welcome message
 set fish_greeting
+set -Ux EDITOR nvim
 
 
 # set PATH so it includes user's private ~/.local/bin if it exists
