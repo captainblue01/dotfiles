@@ -20,24 +20,45 @@ search_script = os.path.expanduser("~/.config/qtile/scripts/find_file")
 tmux_browser = os.path.expanduser("~/.config/tmux/scripts/tmux-browser")
 file_man = os.path.expanduser("~/.config/lf/lfrun")
 desktopwallpapers = os.path.expanduser("~/.config/desktopwallpapers/")
-apps = {
-    "web_browser": "qutebrowser",
-    "terminal": "alacritty -e tmux new-session -A -s tty",
-    "nterminal": f"alacritty -e {tmux_browser}",
-    # Launches in a dropdown
-    "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
-    "calculator": "qalculate-gtk",  # launches in a dropdown
-    "email": "thunderbird",
-    "screenshot_software": "flameshot gui",
-    "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
-    "application_launcher": "rofi -show drun -monitor -1 -theme infinity-list",
-    "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
-    "clipboard": "env CM_LAUNCHER='rofi' clipmenu",
-    "find_file": f"alacritty -T File\ Finder -e {search_script}",
-    "music_player": "spotify-launcher",  # Launches in a dropdown
-    "password_manager": "bitwarden-desktop",  # Launches in a dropdown
-    "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
-}
+if qtile.core.name == "x11":
+    apps = {
+        "web_browser": "qutebrowser",
+        "terminal": "alacritty -e tmux new-session -A -s tty",
+        "nterminal": f"alacritty -e {tmux_browser}",
+        # Launches in a dropdown
+        "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
+        "calculator": "qalculate-gtk",  # launches in a dropdown
+        "email": "thunderbird",
+        "screenshot_software": "flameshot gui",
+        "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
+        "application_launcher": "rofi -show drun -monitor -1 -theme infinity-list",
+        "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
+        "clipboard": "env CM_LAUNCHER='rofi' clipmenu",
+        "find_file": f"alacritty -T File\ Finder -e {search_script}",
+        "music_player": "spotify-launcher",  # Launches in a dropdown
+        "password_manager": "bitwarden-desktop",  # Launches in a dropdown
+        "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
+    }
+elif qtile.core.name == "wayland":
+    apps = {
+        "web_browser": "qutebrowser",
+        "terminal": "alacritty -e tmux new-session -A -s tty",
+        "nterminal": f"alacritty -e {tmux_browser}",
+        # Launches in a dropdown
+        "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
+        "calculator": "qalculate-gtk",  # launches in a dropdown
+        "email": "thunderbird",
+        "screenshot_software": "flameshot gui",
+        "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
+        "application_launcher": "fuzzel",
+        "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
+        "clipboard": "env CM_LAUNCHER='rofi' clipmenu",
+        "find_file": f"alacritty -T File\ Finder -e {search_script}",
+        "music_player": "spotify-launcher",  # Launches in a dropdown
+        "password_manager": "bitwarden-desktop",  # Launches in a dropdown
+        "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
+    }
+
 
 colors = {
     "black": "#101012",
