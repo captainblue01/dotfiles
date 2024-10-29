@@ -23,7 +23,7 @@ return {
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black", "ruff" },
+				python = { "isort", "black" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -36,7 +36,6 @@ return {
 		mason_conform.setup({
 			ensure_installed = {
 				"stylua",
-				"ruff",
 				"black",
 				"prettier",
 				-- "pretty-php",

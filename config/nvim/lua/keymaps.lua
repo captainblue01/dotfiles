@@ -32,7 +32,7 @@ keymap("x", "<F1>", "<Nop>", opts)
 keymap("i", "<C-BS>", "<C-W>", opts)
 keymap("n", "<C-Backspace>", "daw", opts)
 
--- Resize windows using alt + shift + [hjkl]
+-- Resize windows using Ctrl + shift + [hjkl]
 keymap("n", "<CS-up>", ":resize +2<CR>", opts)
 keymap("n", "<CS-down>", ":resize -2<CR>", opts)
 keymap("n", "<CS-left>", ":vertical resize -2<CR>", opts)
@@ -42,7 +42,7 @@ keymap("n", "<CS-j>", ":resize -2<CR>", opts)
 keymap("n", "<CS-h>", ":vertical resize -2<CR>", opts)
 keymap("n", "<CS-l>", ":vertical resize +2<CR>", opts)
 
--- Shift focus between windows using alt + [hjkl]
+-- Shift focus between windows using Ctrl + [hjkl]
 keymap("n", "<C-left>", "<C-w>h", opts)
 keymap("n", "<C-down>", "<C-w>j", opts)
 keymap("n", "<C-up>", "<C-w>k", opts)
@@ -239,7 +239,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		k("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", bo, { desc = "Get Definition" }))
 		k("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", bo, { desc = "Hover" }))
 		k("n", "gI", vim.lsp.buf.implementation, vim.tbl_extend("force", bo, { desc = "Get Implementation" }))
-		k({ "n", "i" }, "<C-h>", vim.lsp.buf.signature_help, vim.tbl_extend("force", bo, { desc = "Signature Help" }))
 		k("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", bo, { desc = "Get References" }))
 		k("n", "gl", vim.diagnostic.open_float, vim.tbl_extend("force", bo, { desc = "Open Float" }))
 		k({ "n", "v" }, "<space>la", vim.lsp.buf.code_action, vim.tbl_extend("force", bo, { desc = "Code Actions" }))
