@@ -33,7 +33,7 @@ if qtile.core.name == "x11":
         "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
         "application_launcher": "rofi -show drun -monitor -1 -theme infinity-list",
         "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
-        "clipboard": "env CM_LAUNCHER='rofi' clipmenu",
+        "clipboard": "cliphist list | fuzzel --dmenu",
         "find_file": f"alacritty -T File\ Finder -e {search_script}",
         "music_player": "spotify-launcher",  # Launches in a dropdown
         "password_manager": "bitwarden-desktop",  # Launches in a dropdown
@@ -48,11 +48,11 @@ elif qtile.core.name == "wayland":
         "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
         "calculator": "qalculate-gtk",  # launches in a dropdown
         "email": "thunderbird",
-        "screenshot_software": "flameshot gui",
+        "screenshot_software": os.path.expanduser("~/.config/satty/screenshot"),
         "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
         "application_launcher": "fuzzel",
         "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
-        "clipboard": "env CM_LAUNCHER='rofi' clipmenu",
+        "clipboard": os.path.expanduser("~/.config/fuzzel/cliphist"),
         "find_file": f"alacritty -T File\ Finder -e {search_script}",
         "music_player": "spotify-launcher",  # Launches in a dropdown
         "password_manager": "bitwarden-desktop",  # Launches in a dropdown

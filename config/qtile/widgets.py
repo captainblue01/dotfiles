@@ -51,6 +51,11 @@ class Widgets:
             ),
         ]
         self.center_widgets = [
+            widget.Mpris2(
+                paused_text="⏸ {track}",
+                playing_text="▶ {track}",
+                poll_interval=1,
+            ),
             widget.GroupBox(
                 fontsize=14,
                 highlight_method="block",
