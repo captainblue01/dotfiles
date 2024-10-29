@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=ssh
-Comment=ssh
-Icon=Infinity
-Exec=rofi -show ssh

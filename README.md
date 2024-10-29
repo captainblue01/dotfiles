@@ -7,8 +7,6 @@
 > Assumes Arch
 
 - run `./arch_package_sync.sh` to install all dependencies plus core utils
-- copy contents from `./config` to `~/.config`
-- `./other` contains app shortcuts, bashrc etc
 
 ## Screenshots
 
