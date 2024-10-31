@@ -42,6 +42,11 @@ class Keybinds:
         self.qtile_keybinds = [
             # Toggle Layouts
             Key([MOD], "c", lazy.next_layout(), desc="Cylces through the layouts"),
+            Key(
+                [MOD, "shift"],
+                "t",
+                lazy.widget["widgetbox"].toggle(),
+            ),
             Key([MOD], "b", lazy.function(plugins.relabel_group)),
             Key(
                 [MOD],
@@ -219,6 +224,11 @@ class Keybinds:
         ]
 
         self.window_manipulation = [
+            Key(
+                ["shift"],
+                "m",
+                lazy.window.toggle_fullscreen(),
+            ),
             Key(
                 ["shift"],
                 "r",

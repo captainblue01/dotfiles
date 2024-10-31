@@ -1,4 +1,5 @@
 #!/bin/bash
+# kanshi &
 wl-paste --watch cliphist store &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dunst &

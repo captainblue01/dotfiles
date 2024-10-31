@@ -26,7 +26,7 @@ class Widgets:
             ),
             widget.TaskList(
                 icon_size=20,
-                max_title_width=300,
+                max_title_width=450,
                 highlight_method="block",
                 borderwidth=0,
                 margin=0,
@@ -39,23 +39,82 @@ class Widgets:
                 theme_mode="fallback",
                 theme_path="/usr/share/icons/Papirus-Dark/",
             ),
+            widget.Chord(
+                foreground=colors["dark4"],
+                background=colors["magenta"],
+            ),
+        ]
+        self.primary_widgets = [
             widget.Prompt(
                 foreground=colors["dark4"],
                 cursor_color=colors["dark4"],
                 background=colors["green"],
                 margin=8,
             ),
-            widget.Chord(
-                foreground=colors["dark4"],
-                background=colors["magenta"],
+            # widget.TextBox(text="⏮"),
+            widget.Mpris2(
+                paused_text="⏸  {track}",
+                playing_text="⏵  {track}",
+                format="𝅘𝅥𝅯 {xesam:title} - {xesam:artist} 𝅘𝅥𝅯",
+                width=250,
+                no_metadata_text="𝅘𝅥𝅯",
+                stopped_text="⏹",
+                background=colors["dark1"],
+                padding=10,
+            ),
+            # widet.TextBox(text="⏭"),
+            widget.WidgetBox(
+                widgets=[
+                    widget.Spacer(10, background=colors["dark1"]),
+                    widget.Clock(
+                        timezone="US/Central",
+                        format="US, %a %I:%M%p",
+                        mouse_callbacks={
+                            "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
+                        },
+                        background=colors["dark1"],
+                    ),
+                    widget.Sep(
+                        foreground=colors["grey2"],
+                        linewidth=2,
+                        size_percent=40,
+                        padding=4,
+                        background=colors["dark1"],
+                    ),
+                    widget.Clock(
+                        timezone="Europe/Amsterdam",
+                        format="EU, %a %I:%M%p",
+                        mouse_callbacks={
+                            "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
+                        },
+                        background=colors["dark1"],
+                    ),
+                    widget.Sep(
+                        foreground=colors["grey2"],
+                        linewidth=2,
+                        size_percent=40,
+                        padding=4,
+                        background=colors["dark1"],
+                    ),
+                    widget.Clock(
+                        timezone="Europe/London",
+                        format="UK, %a %I:%M%p",
+                        mouse_callbacks={
+                            "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
+                        },
+                        background=colors["dark1"],
+                    ),
+                ],
+                close_button_location="right",
+                background=colors["dark1"],
+                text_open="-",
+                text_closed="+",
+                fontsize=15,
+                padding=10,
             ),
         ]
+
         self.center_widgets = [
-            widget.Mpris2(
-                paused_text="⏸ {track}",
-                playing_text="▶ {track}",
-                poll_interval=1,
-            ),
             widget.GroupBox(
                 fontsize=14,
                 highlight_method="block",
@@ -76,36 +135,6 @@ class Widgets:
         ]
         self.right_widgets = [
             widget.Spacer(5, background=colors["dark1"]),
-            widget.Clock(
-                timezone="US/Central",
-                format="TX, %a %I:%M%p",
-                mouse_callbacks={
-                    "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
-                },
-                background=colors["dark1"],
-            ),
-            widget.Sep(
-                foreground=colors["grey2"],
-                linewidth=2,
-                size_percent=40,
-                padding=4,
-                background=colors["dark1"],
-            ),
-            widget.Clock(
-                timezone="Europe/Amsterdam",
-                format="NL, %a %I:%M%p",
-                mouse_callbacks={
-                    "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
-                },
-                background=colors["dark1"],
-            ),
-            widget.Sep(
-                foreground=colors["grey2"],
-                linewidth=2,
-                size_percent=40,
-                padding=4,
-                background=colors["dark1"],
-            ),
             widget.Spacer(5, background=colors["dark1"]),
             widget.Clock(
                 format="󰃮 %a, %B %d",
@@ -123,7 +152,7 @@ class Widgets:
             ),
             widget.Clock(
                 timezone="Australia/Brisbane",
-                format="%I:%M%p",
+                format="%I:%M:%S%p",
                 mouse_callbacks={
                     "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
                 },
@@ -189,8 +218,8 @@ class Widgets:
     def get_widgets(self):
         return (
             self.left_widgets
+            + self.primary_widgets
             + self.center_widgets
-            # + self.systray
             + self.laptop_widgets()
             + self.right_widgets
         )

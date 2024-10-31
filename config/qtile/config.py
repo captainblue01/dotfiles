@@ -117,23 +117,61 @@ try:
     screen_count = int(os.environ["SCREENS"])
 except KeyError:
     screen_count = 3
+
 screens = []
-screens.append(
-    Screen(
-        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
-        wallpaper=get_wallpaper(desktopwallpapers),
-        wallpaper_mode="fill",
-    )
-)
 if screen_count > 1:
-    for _ in range(screen_count - 1):
-        screens.append(
-            Screen(
-                top=bar.Bar(widgets.Widgets(colors).get_secondary_widgets(), 23),
-                wallpaper=get_wallpaper(desktopwallpapers),
-                wallpaper_mode="fill",
-            )
+
+    if os.getenv("MAIN_SCREEN"):
+        for x in range(screen_count):
+            logger.warn(x)
+            if x == int(os.getenv("MAIN_SCREEN")) - 1:
+                screens.append(
+                    Screen(
+                        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
+                        wallpaper=get_wallpaper(desktopwallpapers),
+                        wallpaper_mode="fill",
+                    )
+                )
+            else:
+                screens.append(
+                    Screen(
+                        top=bar.Bar(
+                            widgets.Widgets(colors).get_secondary_widgets(), 23
+                        ),
+                        wallpaper=get_wallpaper(desktopwallpapers),
+                        wallpaper_mode="fill",
+                    )
+                )
+
+    else:
+        for x in range(screen_count - 1):
+            if x == 1:
+                screens.append(
+                    Screen(
+                        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
+                        wallpaper=get_wallpaper(desktopwallpapers),
+                        wallpaper_mode="fill",
+                    )
+                )
+            else:
+                screens.append(
+                    Screen(
+                        top=bar.Bar(
+                            widgets.Widgets(colors).get_secondary_widgets(), 23
+                        ),
+                        wallpaper=get_wallpaper(desktopwallpapers),
+                        wallpaper_mode="fill",
+                    )
+                )
+
+else:
+    screens.append(
+        Screen(
+            top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
+            wallpaper=get_wallpaper(desktopwallpapers),
+            wallpaper_mode="fill",
         )
+    )
 
 
 # Layouts & Groups
