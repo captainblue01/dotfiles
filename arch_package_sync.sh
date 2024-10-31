@@ -26,8 +26,6 @@ official_packages=(
   qt5ct 
   qalculate-gtk 
   qtile 
-  pulseaudio-bluetooth
-  pulsemixer 
   python-dbus-next
   polkit-gnome
   python-pytz

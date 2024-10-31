@@ -123,7 +123,6 @@ if screen_count > 1:
 
     if os.getenv("MAIN_SCREEN"):
         for x in range(screen_count):
-            logger.warn(x)
             if x == int(os.getenv("MAIN_SCREEN")) - 1:
                 screens.append(
                     Screen(

@@ -45,23 +45,6 @@ class Widgets:
             ),
         ]
         self.primary_widgets = [
-            widget.Prompt(
-                foreground=colors["dark4"],
-                cursor_color=colors["dark4"],
-                background=colors["green"],
-                margin=8,
-            ),
-            # widget.TextBox(text="⏮"),
-            widget.Mpris2(
-                paused_text="⏸  {track}",
-                playing_text="⏵  {track}",
-                format="𝅘𝅥𝅯 {xesam:title} - {xesam:artist} 𝅘𝅥𝅯",
-                width=250,
-                no_metadata_text="𝅘𝅥𝅯",
-                stopped_text="⏹",
-                background=colors["dark1"],
-                padding=10,
-            ),
             # widet.TextBox(text="⏭"),
             widget.WidgetBox(
                 widgets=[
@@ -110,6 +93,23 @@ class Widgets:
                 text_open="-",
                 text_closed="+",
                 fontsize=15,
+                padding=10,
+            ),
+            widget.Prompt(
+                foreground=colors["dark4"],
+                cursor_color=colors["dark4"],
+                background=colors["green"],
+                margin=8,
+            ),
+            # widget.TextBox(text="⏮"),
+            widget.Mpris2(
+                paused_text="⏸  {track}",
+                playing_text="⏵  {track}",
+                format="𝅘𝅥𝅯 {xesam:title} - {xesam:artist} 𝅘𝅥𝅯",
+                width=250,
+                no_metadata_text="𝅘𝅥𝅯",
+                stopped_text="⏹",
+                background=colors["dark1"],
                 padding=10,
             ),
         ]
