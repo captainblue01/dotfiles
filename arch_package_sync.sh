@@ -21,8 +21,8 @@ official_packages=(
   neovim 
   python-psutil 
   python-dateutil
-  # udiskie not sure if I need this and thunar
   thunar
+  pulse-mixer
   qt5ct 
   qalculate-gtk 
   qtile 
