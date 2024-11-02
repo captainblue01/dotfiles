@@ -20,26 +20,7 @@ search_script = os.path.expanduser("~/.config/qtile/scripts/find_file")
 tmux_browser = os.path.expanduser("~/.config/tmux/scripts/tmux-browser")
 file_man = os.path.expanduser("~/.config/lf/lfrun")
 desktopwallpapers = os.path.expanduser("~/.config/desktopwallpapers/")
-if qtile.core.name == "x11":
-    apps = {
-        "web_browser": "qutebrowser",
-        "terminal": "alacritty -e tmux new-session -A -s tty",
-        "nterminal": f"alacritty -e {tmux_browser}",
-        # Launches in a dropdown
-        "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
-        "calculator": "qalculate-gtk",  # launches in a dropdown
-        "email": "thunderbird",
-        "screenshot_software": "flameshot gui",
-        "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
-        "application_launcher": "rofi -show drun -monitor -1 -theme infinity-list",
-        "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
-        "clipboard": "cliphist list | fuzzel --dmenu",
-        "find_file": f"alacritty -T File\ Finder -e {search_script}",
-        "music_player": "spotify-launcher",  # Launches in a dropdown
-        "password_manager": "bitwarden-desktop",  # Launches in a dropdown
-        "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
-    }
-elif qtile.core.name == "wayland":
+if qtile.core.name == "wayland":
     apps = {
         "web_browser": "qutebrowser",
         "terminal": "alacritty -e tmux new-session -A -s tty",
@@ -53,6 +34,25 @@ elif qtile.core.name == "wayland":
         "application_launcher": "fuzzel",
         "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
         "clipboard": os.path.expanduser("~/.config/fuzzel/cliphist"),
+        "find_file": f"alacritty -T File\ Finder -e {search_script}",
+        "music_player": "spotify-launcher",  # Launches in a dropdown
+        "password_manager": "bitwarden-desktop",  # Launches in a dropdown
+        "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
+    }
+else:
+    apps = {
+        "web_browser": "qutebrowser",
+        "terminal": "alacritty -e tmux new-session -A -s tty",
+        "nterminal": f"alacritty -e {tmux_browser}",
+        # Launches in a dropdown
+        "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
+        "calculator": "qalculate-gtk",  # launches in a dropdown
+        "email": "thunderbird",
+        "screenshot_software": "flameshot gui",
+        "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
+        "application_launcher": "rofi -show drun -monitor -1 -theme infinity-list",
+        "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
+        "clipboard": "cliphist list | fuzzel --dmenu",
         "find_file": f"alacritty -T File\ Finder -e {search_script}",
         "music_player": "spotify-launcher",  # Launches in a dropdown
         "password_manager": "bitwarden-desktop",  # Launches in a dropdown
@@ -113,17 +113,26 @@ dgroups_app_rules = []
 wmname = "LG3D"  # This is false this is just to help with java UI tookits
 
 # Screens
-try:
+if os.path.exists(os.path.expanduser("~/.screens")):
+    with open(os.path.expanduser("~/.screens")) as file:
+        lines = file.readlines()
+        screen_count = int(lines[0])
+        if len(lines) > 1:
+            main_sceen = int(lines[1])
+elif os.getenv("SCREENS"):
     screen_count = int(os.environ["SCREENS"])
-except KeyError:
+    if os.getenv("MAIN_SCREEN"):
+        main_screen = int(os.environ["MAIN_SCREEN"])
+else:
     screen_count = 3
+
 
 screens = []
 if screen_count > 1:
 
-    if os.getenv("MAIN_SCREEN"):
+    if main_screen:
         for x in range(screen_count):
-            if x == int(os.getenv("MAIN_SCREEN")) - 1:
+            if x == main_screen - 1:
                 screens.append(
                     Screen(
                         top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
