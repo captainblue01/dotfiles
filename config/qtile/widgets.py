@@ -106,7 +106,7 @@ class Widgets:
                 paused_text="⏸  {track}",
                 playing_text="⏵  {track}",
                 format="𝅘𝅥𝅯 {xesam:title} - {xesam:artist} 𝅘𝅥𝅯",
-                width=250,
+                width=300,
                 no_metadata_text="𝅘𝅥𝅯",
                 stopped_text="⏹",
                 background=colors["dark1"],

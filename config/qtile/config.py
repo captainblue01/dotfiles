@@ -118,7 +118,7 @@ if os.path.exists(os.path.expanduser("~/.screens")):
         lines = file.readlines()
         screen_count = int(lines[0])
         if len(lines) > 1:
-            main_sceen = int(lines[1])
+            main_screen = int(lines[1])
 elif os.getenv("SCREENS"):
     screen_count = int(os.environ["SCREENS"])
     if os.getenv("MAIN_SCREEN"):
