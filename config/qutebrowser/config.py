@@ -25,7 +25,6 @@ c.content.javascript.clipboard = "access-paste"
 # Darkmode
 # c.colors.webpage.bg = theme.COLORS["darker"]
 # Disabled the chromium engine darkmode
-# c.content.user_stylesheets = "./stylesheets/darkmode_fixes.css"
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = False
 # c.colors.webpage.darkmode.policy.images = 'never'
@@ -41,7 +40,7 @@ c.auto_save.session = (
 
 # Request websites to minimize non-essentials animations and motion. This results in the `prefers-reduced-motion` CSS media query to evaluate to `reduce` (rather than `no-preference`).
 c.content.prefers_reduced_motion = True
-c.scrolling.smooth = False
+c.scrolling.smooth = True
 c.keyhint.delay = 200
 
 # Mode Switching Settings
@@ -87,21 +86,21 @@ c.tabs.tabs_are_windows = False  # Open a new window for every tab.
 # File Dialog
 c.fileselect.handler = "external"
 c.fileselect.folder.command = [
-    "kitty",
+    "alacritty",
     "--class=dialog",
     "-e",
     "lf",
     "--selection-path={}",
 ]
 c.fileselect.multiple_files.command = [
-    "kitty",
+    "alacritty",
     "--class=dialog",
     "-e",
     "lf",
     "--selection-path={}",
 ]
 c.fileselect.single_file.command = [
-    "kitty",
+    "alacritty",
     "--class=dialog",
     "-e",
     "lf",
@@ -152,7 +151,8 @@ c.url.searchengines = {
     "ddg": "https://duckduckgo.com/?q={}",
     "google": "https://www.google.com/search?q={}",
     "yt": "https://www.youtube.com/results?search_query={}",
-    "mk": "https://www.miltonandking.com/au/search/?q={}",
+    "mk": "https://www.miltonandking.com/search/?q={}",
+    "gpt": "https://chat.openai.com/?q={}",
     "arch": "https://wiki.archlinux.org/title/{}",
 }
 

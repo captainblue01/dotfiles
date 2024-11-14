@@ -6,10 +6,7 @@ def keymaps(config):
     config.unbind("d")  # 'tab-close'
 
     # Darkmode
-    config.bind(
-        "d",
-        'config-cycle content.user_stylesheets ./stylesheets/apprentice-all-sites.css "./stylesheets/darkmode_fixes.css"',
-    )
+    config.bind("d", ":config-cycle colors.webpage.darkmode.enabled")
 
     # Scroll
     config.bind("J", "scroll-px 0 500")  # Increased scoll speed
