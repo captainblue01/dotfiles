@@ -113,8 +113,9 @@ dgroups_app_rules = []
 wmname = "LG3D"  # This is false this is just to help with java UI tookits
 
 # Screens
-if os.path.exists(os.path.expanduser("~/.screens")):
-    with open(os.path.expanduser("~/.screens")) as file:
+main_screen = False
+if os.path.exists(os.path.expanduser("/tmp/.screens")):
+    with open(os.path.expanduser("/tmp/.screens")) as file:
         lines = file.readlines()
         screen_count = int(lines[0])
         if len(lines) > 1:
@@ -124,7 +125,7 @@ elif os.getenv("SCREENS"):
     if os.getenv("MAIN_SCREEN"):
         main_screen = int(os.environ["MAIN_SCREEN"])
 else:
-    screen_count = 3
+    screen_count = 1
 
 
 screens = []
@@ -196,6 +197,11 @@ mouse = keybinds.generate_mouse_keybinds()
 
 # Autostart
 # Runs the auto start script on system startup
+
+
+@hook.subscribe.screen_change
+def screen_change(event):
+    qtile.reconfigure_screens()
 
 
 @hook.subscribe.startup_once
