@@ -54,10 +54,8 @@ This config uses enviroment variables for setting a few basic options.
 
 ### Screens
 
-Please set the enviroment variable `SCREENS` to the number of screens you would like qtile to setup
-
-> If there is no enviroment variable set for `SCREENS` it will default to 3
-> Please set the enviroment variable `MAIN_SCREEN` to the screen that you would like primary widgets to show (WAYLAND ONLY)
+Kanshi creates a screens file at `/tmp/.screens` file that has 2 numbers the first lists the number of screens and the seconds sets the primary display.
+This Qtile config reads this file for screen information.
 
 ### Device Type
 
@@ -147,7 +145,7 @@ Please set the enviroment variable `DEVICE_TYPE` to `LAPTOP` to enable laptop wi
 - **<MOD, "Return">** _Show `terminal` dropdown **(defined in config.py)**_
 - **<MOD, "x"> <Shift, "e">** _Launch `emoji_keyboard` **(defined in config.py)**_
 - **<MOD, "d">** _Launch `app_launcher` **(defined in config.py)**_
-- **<MOD, "Tab">\* \_Launch `task_switcher` **(defined in config.py)\*_\__
+- **<MOD, "Tab">\* \_Launch `task_switcher` **(defined in config.py)\*\_\_\_
 
 ## Window Control Mode
 

@@ -81,7 +81,7 @@ class Groups:
             "on_focus_lost_hide": True,
             "warp_pointer": True,
             "height": 0.8,
-            "opacity": 0.95,
+            "opacity": 1.0,
             "width": 0.8,
             "x": 0.1,
             "y": 0.1,
