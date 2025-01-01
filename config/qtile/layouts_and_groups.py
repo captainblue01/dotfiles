@@ -73,7 +73,11 @@ class Groups:
             Group("0", layout="verticaltile"),
             Group("Q", layout="columns"),
             Group("W", layout="columns"),
-            Group("E", layout="columns", matches=[Match(wm_class="Mail")]),
+            Group(
+                "E",
+                layout="columns",
+                matches=[Match(wm_class="Mail"), Match(title="thunderbird")],
+            ),
         ]
 
     def get_dropdowns(self, apps):
@@ -123,7 +127,7 @@ class Groups:
             DropDown(
                 "calculator",
                 apps["calculator"],
-                opacity=0.6,
+                opacity=0.75,
                 height=0.2,
                 width=0.3,
                 x=0.35,
