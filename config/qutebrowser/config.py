@@ -23,7 +23,7 @@ c.scrolling.bar = "when-searching"
 c.content.javascript.clipboard = "access-paste"
 
 # Darkmode
-c.colors.webpage.bg = theme.COLORS["darker"]
+# c.colors.webpage.bg = theme.COLORS["darker"]
 # Disabled the chromium engine darkmode
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = False
