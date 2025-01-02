@@ -29,6 +29,7 @@ c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = False
 # c.colors.webpage.darkmode.policy.images = 'never'
 
+
 # General Settings
 c.confirm_quit = [
     "downloads"
@@ -153,7 +154,6 @@ c.url.searchengines = {
     "yt": "https://www.youtube.com/results?search_query={}",
     "mk": "https://www.miltonandking.com/search/?q={}",
     "gpt": "https://chat.openai.com/?q={}",
-    "arch": "https://wiki.archlinux.org/title/{}",
 }
 
 # Which categories to show (in which order) in the :open completion., searchengines, quickmarks, bookmarks, history, filesystem
