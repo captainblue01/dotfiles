@@ -93,8 +93,8 @@ font = "JetBrainsMono Nerd Font Mono"
 
 widget_defaults = {
     "font": font,
-    "fontsize": 12,
-    "padding": 6,
+    "fontsize": 13,
+    "padding": 8,
     "background": f'{colors["dark3"]}',
     "foreground": colors["white"],
 }
@@ -136,7 +136,7 @@ if screen_count > 1:
             if x == main_screen - 1:
                 screens.append(
                     Screen(
-                        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
+                        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 26),
                         wallpaper=get_wallpaper(desktopwallpapers),
                         wallpaper_mode="fill",
                     )
@@ -145,7 +145,7 @@ if screen_count > 1:
                 screens.append(
                     Screen(
                         top=bar.Bar(
-                            widgets.Widgets(colors).get_secondary_widgets(), 23
+                            widgets.Widgets(colors).get_secondary_widgets(), 26
                         ),
                         wallpaper=get_wallpaper(desktopwallpapers),
                         wallpaper_mode="fill",
@@ -157,7 +157,7 @@ if screen_count > 1:
             if x == 1:
                 screens.append(
                     Screen(
-                        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
+                        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 26),
                         wallpaper=get_wallpaper(desktopwallpapers),
                         wallpaper_mode="fill",
                     )
@@ -166,7 +166,7 @@ if screen_count > 1:
                 screens.append(
                     Screen(
                         top=bar.Bar(
-                            widgets.Widgets(colors).get_secondary_widgets(), 23
+                            widgets.Widgets(colors).get_secondary_widgets(), 26
                         ),
                         wallpaper=get_wallpaper(desktopwallpapers),
                         wallpaper_mode="fill",
@@ -176,7 +176,7 @@ if screen_count > 1:
 else:
     screens.append(
         Screen(
-            top=bar.Bar(widgets.Widgets(colors).get_widgets(), 23),
+            top=bar.Bar(widgets.Widgets(colors).get_widgets(), 26),
             wallpaper=get_wallpaper(desktopwallpapers),
             wallpaper_mode="fill",
         )
