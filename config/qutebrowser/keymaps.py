@@ -6,7 +6,7 @@ def keymaps(config):
     config.unbind("d")  # 'tab-close'
 
     # Darkmode
-    config.bind("d", ":config-cycle -u {url} colors.webpage.darkmode.enabled ;; reload")
+    config.bind("D", ":config-cycle -u {url:host} colors.webpage.darkmode.enabled ;; reload")
 
     # Scroll
     config.bind("J", "scroll-px 0 500")  # Increased scoll speed
