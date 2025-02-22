@@ -25,11 +25,14 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			notify_on_error = false,
+			format_on_save = function(bufnr)
+				local disable_filetypes = { c = true, cpp = true }
+				return {
+					timeout_ms = 5000,
+					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+				}
+			end,
 		})
 
 		-- Install formaters

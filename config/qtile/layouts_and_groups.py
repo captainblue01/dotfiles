@@ -100,7 +100,7 @@ class Groups:
             ),
             DropDown(
                 "audio_mixer",
-                "pavucontrol",
+                "alacritty -e pulsemixer",
                 **default_dropdown_settings,
             ),
             DropDown(

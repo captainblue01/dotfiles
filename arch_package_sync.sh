@@ -3,7 +3,6 @@
 # List of packages from the official repositories
 official_packages=(
   # Qtile System
-  fuzzel
   cliphist
   fish
   tmux
@@ -22,13 +21,33 @@ official_packages=(
   python-psutil 
   python-dateutil
   thunar
-  pulse-mixer
+  pulsemixer
+  pavucontrol
   qt5ct 
+  qt6ct 
   qalculate-gtk 
   qtile 
   python-dbus-next
   polkit-gnome
   python-pytz
+  ntfs-3g
+  python-dbus-fast
+  kanshi
+  python-pyxdg
+
+  # Wayland
+  python-pywlroots
+  xorg-xwayland
+  xdg-desktop-portal-wlr 
+  xdg-desktop-portal-gtk
+  qt5-wayland
+  qt6-wayland
+
+
+  # Launcher
+  rofi-wayland
+  rofi-emoji
+  fuzzel
   
   # Screenshot tools
   grim
@@ -62,6 +81,7 @@ official_packages=(
   composer 
   fd 
   bat 
+  less
   rust 
 
   # Software
@@ -99,6 +119,7 @@ aur_packages=(
   papirus-linux-universe 
   mpris2controller-git 
   cp-p-git
+  wdisplays
 )
 
 # Install packages from the official repositories

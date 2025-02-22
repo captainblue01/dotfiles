@@ -26,7 +26,7 @@ c.content.javascript.clipboard = "access-paste"
 # c.colors.webpage.bg = theme.COLORS["darker"]
 # Disabled the chromium engine darkmode
 c.colors.webpage.preferred_color_scheme = "dark"
-c.colors.webpage.darkmode.enabled = True
+# c.colors.webpage.darkmode.enabled = True
 # c.colors.webpage.darkmode.policy.images = 'never'
 
 

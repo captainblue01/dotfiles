@@ -1,17 +1,20 @@
 local colors = {
-	bg = "#232326",
-	bg1 = "#2c2d31",
-	bg2 = "#35363b",
-	bg3 = "#37383d",
-	fg = "#a7aab0",
+	bg = "#222224",
+	bg1 = "#28282A",
+	bg2 = "#3C3C3E",
+	bg3 = "#6F7073",
+	fg = "#D0D1D1",
 	red = "#de5d68",
-	green = "#8fb573",
-	yellow = "#dbb671",
-	blue = "#57a5e5",
-	purple = "#bb70d2",
-	cyan = "#37A8B7",
-	gray = "#5a5b5e",
+	green = "#76BB59",
+	yellow = "#FBB750",
+	orange = "#FDA308",
+	blue = "#4CACE6",
+	purple = "#BF67D6",
+	dark_purple = "#AA57D1",
+	cyan = "#18B5CD",
+	gray = "#96979A",
 }
+
 local lualine_theme = {
 	inactive = {
 		a = { fg = colors.bg, bg = colors.purple },
@@ -65,10 +68,28 @@ m[1].config = function()
 		ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
 		cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 		-- toggle theme style ---
+		colors = {
+			bg0 = colors["bg"], -- Text Editor background
+			bg1 = colors["bg1"], -- Text Highlight
+			bg2 = colors["bg2"], -- Bottom Status Bar
+			bg3 = colors["bg3"], -- Dividers
+			fg = colors["fg"],
+			grey = colors["bg3"], -- Comments
+
+			purple = colors["purple"],
+			green = colors["green"],
+			blue = colors["blue"],
+			yellow = colors["yellow"],
+			cyan = colors["cyan"],
+			red = colors["red"],
+			orange = colors["orange"],
+			dark_purple = colors["dark_purple"],
+		},
 		toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
 		-- toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
 		-- Change code style ---
 		-- Options are italic, bold, underline, none
+		--
 		-- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
 		code_style = {
 			comments = "italic",
