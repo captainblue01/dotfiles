@@ -36,7 +36,7 @@ if qtile.core.name == "wayland":
         "clipboard": os.path.expanduser("~/.config/fuzzel/cliphist"),
         "find_file": f"alacritty -T File\ Finder -e {search_script}",
         "music_player": "spotify-launcher",  # Launches in a dropdown
-        "password_manager": "bitwarden-desktop",  # Launches in a dropdown
+        "password_manager": "bitwarden-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland",  # Launches in a dropdown
         "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
     }
 else:
@@ -136,7 +136,7 @@ if screen_count > 1:
             if x == main_screen - 1:
                 screens.append(
                     Screen(
-                        top=bar.Bar(widgets.Widgets(colors).get_widgets(), 26),
+                        top=bar.Bar(widgets.Widgets(colors, apps).get_widgets(), 26),
                         wallpaper=get_wallpaper(desktopwallpapers),
                         wallpaper_mode="fill",
                     )
@@ -145,7 +145,7 @@ if screen_count > 1:
                 screens.append(
                     Screen(
                         top=bar.Bar(
-                            widgets.Widgets(colors).get_secondary_widgets(), 26
+                            widgets.Widgets(colors, apps).get_secondary_widgets(), 26
                         ),
                         wallpaper=get_wallpaper(desktopwallpapers),
                         wallpaper_mode="fill",

@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 
 
 class Widgets:
-    def __init__(self, colors):
+    def __init__(self, colors, apps):
         self.colors = colors
         self.left_widgets = [
             plugins.CurrentScreen(
@@ -18,11 +18,7 @@ class Widgets:
                 fontsize=17,
                 padding=0,
                 margin=0,
-                mouse_callbacks={
-                    "Button1": lazy.spawn(
-                        "rofi -show drun -monitor -1 -theme infinity-list"
-                    )
-                },
+                mouse_callbacks={"Button1": lazy.spawn(apps["application_launcher"])},
             ),
             widget.TaskList(
                 icon_size=20,
