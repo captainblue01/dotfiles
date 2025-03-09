@@ -34,6 +34,8 @@ official_packages=(
   python-dbus-fast
   kanshi
   python-pyxdg
+  tumbler
+  ffmpegthumbnailer
 
   # Wayland
   python-pywlroots

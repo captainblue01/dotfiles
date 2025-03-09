@@ -35,7 +35,7 @@ if qtile.core.name == "wayland":
         "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
         "clipboard": os.path.expanduser("~/.config/fuzzel/cliphist"),
         "find_file": f"alacritty -T File\ Finder -e {search_script}",
-        "music_player": "spotify-launcher",  # Launches in a dropdown
+        "music_player": "spotify-launcher --enable-features=UseOzonePlatform --ozone-platform=wayland",  # Launches in a dropdown
         "password_manager": "bitwarden-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland",  # Launches in a dropdown
         "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
     }
