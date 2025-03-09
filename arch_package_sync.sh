@@ -50,9 +50,9 @@ official_packages=(
   fuzzel
   
   # Screenshot tools
-  grim
-  slurp
-  satty
+grim
+slurp
+satty
 
   # Fonts
   ttf-dejavu 
@@ -91,6 +91,7 @@ official_packages=(
   ttyper
 
   # LF Support
+  ueberzugpp
   glow
    lf 
   imagemagick

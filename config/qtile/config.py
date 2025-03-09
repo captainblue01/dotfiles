@@ -120,10 +120,10 @@ if os.path.exists(os.path.expanduser("/tmp/.screens")):
         screen_count = int(lines[0])
         if len(lines) > 1:
             main_screen = int(lines[1])
-elif os.getenv("SCREENS"):
-    screen_count = int(os.environ["SCREENS"])
-    if os.getenv("MAIN_SCREEN"):
-        main_screen = int(os.environ["MAIN_SCREEN"])
+# elif os.getenv("SCREENS"):
+#     screen_count = int(os.environ["SCREENS"])
+#     if os.getenv("MAIN_SCREEN"):
+#         main_screen = int(os.environ["MAIN_SCREEN"])
 else:
     screen_count = 1
 
