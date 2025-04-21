@@ -1,0 +1,181 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+
+    "position": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    "height": 27,
+
+    "modules-left": [
+      "custom/active-monitor",
+      "group/tasklist"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+        "hyprland/submap",
+        "group/mpris",
+        "hyprland/workspaces",
+        "battery",
+        "custom/spacer",
+        "tray",
+        "custom/spacer",
+        "group/worldclock",
+    ],
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+    "group/worldclock": {
+      "orientation": "inherit",
+      "drawer": {
+          "transition-duration": 500,
+          "click-to-reveal": true,
+          "transition-left-to-right": false,
+      },
+      "modules": [
+        "clock",
+        "clock#au",
+        "custom/spacer",
+        "clock#nl",
+        "custom/spacer",
+        "clock#uk",
+        "custom/spacer",
+        "clock#us",
+        "custom/spacer",
+      ]
+    },
+    "group/tasklist": {
+      "orientation": "inherit",
+      "drawer": {
+          "transition-duration": 500,
+          "transition-left-to-right": false,
+      },
+      "modules": [
+        "hyprland/window",
+        "wlr/taskbar"
+      ]
+    },
+    "group/mpris": {
+      "orientation": "inherit",
+      "modules": [
+        "mpris#statusplay",
+        "mpris#icon",
+        "mpris#name",
+      ]
+    },
+    "hyprland/workspaces": {
+      "all-outputs": true,
+    },
+    "custom/active-monitor": {
+        "exec": "~/.config/waybar/waybar-active-monitor.sh",
+        "return-type": "json",
+        "persistent": true,
+        "on-click": "fuzzel"
+    },
+    "hyprland/window": {
+      "seperate-outputs": true,
+      "icon-size": 18,
+      "icon": true
+    },
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        // Connected to AC
+        "format": "  {icon}  {capacity}%", // Icon: bolt
+        // Not connected to AC
+        "format-discharging": "{icon}  {capacity}%",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": true
+    },
+    "custom/spacer": {
+      "format": "|",
+      "tooltip": false
+    },
+    "mpris#icon": {
+      "format": "{player_icon}",
+      "player-icons": {
+        "default": "𝅘𝅥𝅯",
+        "spotify": "",
+        "brave": "",
+        "chromium": "",
+      },
+    },
+    "mpris#statusplay": {
+      "format": "{status_icon}",
+      "status-icons": {
+        "paused": "⏸",
+        "playing": "",
+        "stopped": "󰓛"
+      },
+    },
+    "mpris#name": {
+      "format": "{dynamic}",
+      "dynamic-order": ["title","artist"],
+      "title-len": 33,
+      "dynamic-len": 38,
+      "dynamic-importance-order": ["title", "artist"],
+    },
+    "clock#us": {
+      "timezone":"US/Central",
+      "interval": 1,
+      "format": "US, {:%a %I:%M:%S%p}",
+      "tooltip-format": "{:%H:%M:%S, %A, %e %B %Y}"
+    },
+    "clock#uk": {
+      "timezone":"Europe/London",
+      "interval": 1,
+      "format": "UK, {:%a %I:%M:%S%p}",
+      "tooltip-format": "{:%H:%M:%S, %A, %e %B %Y}"
+    },
+    "clock#nl": {
+      "timezone":"Europe/Amsterdam",
+      "interval": 1,
+      "format": "NL, {:%a %I:%M:%S%p}",
+      "tooltip-format": "{:%H:%M:%S, %A, %e %B %Y}"
+    },
+    "clock#au": {
+      "timezone":"Australia/Brisbane",
+      "interval": 1,
+      "format": "AU, {:%a %I:%M:%S%p}",
+      "tooltip-format": "{:%H:%M:%S, %A, %e %B %Y}"
+    },
+
+    "clock": {
+      "interval": 1,
+      "format": " {:%a, %B, %d | %I:%M:%S%p}",
+      "tooltip-format": "{:%H:%M:%S, %A, %e %B %Y}"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    },
+    "wlr/taskbar": {
+        "format": " {icon} {title} {short_state} ",
+        "icon-size": 18,
+        "active-first": true,
+        "spacing": 3,
+        "all-outputs": false,
+        "theme_path": "Papirus-Dark",
+        "on-click-middle": "close",
+        "tooltip-format": "{title}",
+        "ignore-list": ["spotify", "Qalculate!", "Bitwarden", "File Manager", "Mixer"],
+        "on-click": "activate",
+        "rewrite": {
+          "^(.{20}).*$": "$1… "  // This matches anything over 30 characters and adds an ellipsis
+        }
+    }
+
+}

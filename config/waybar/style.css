@@ -1,0 +1,185 @@
+/* -----------------------------------------------------------------------------
+ * Variables
+ * -------------------------------------------------------------------------- */
+
+@define-color bg #222224;
+@define-color bg1 #28282a;
+@define-color bg2 #3c3c3e;
+@define-color bg3 #57585b;
+@define-color fg #d0d1d1;
+@define-color red #de5d68;
+@define-color green #76bb59;
+@define-color yellow #fbb750;
+@define-color orange #fda308;
+@define-color blue #4cace6;
+@define-color purple #bf67d6;
+@define-color dark_purple #aa57d1;
+@define-color cyan #18b5cd;
+@define-color gray #96979a;
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrainsMono Nerd Font Mono", sans-serif;
+  font-size: 13px;
+}
+
+/* The whole bar */
+#waybar {
+  background: @bg;
+  color: @fg;
+}
+
+/* Each module */
+#battery,
+#group-worldclock,
+#clock,
+#tray,
+#custom-spacer {
+  padding-left: 4px;
+  padding-right: 4px;
+  background-color: @bg2;
+  color: @fg;
+}
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#window,
+#mpris {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: @fg;
+}
+
+#custom-spacer {
+  color: @gray;
+}
+
+#submap {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: @purple;
+  color: @bg;
+}
+
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.warning {
+  color: @orange;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+
+#workspaces button {
+  padding-bottom: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  color: @fg;
+  background-color: @bg2;
+}
+
+#workspaces button.visible {
+  color: @bg;
+  background-color: @gray;
+}
+
+#workspaces button.visible.hosting-monitor,
+#custom-active-monitor.inactive {
+  color: @bg;
+  background-color: @purple;
+}
+
+#workspaces button.active.hosting-monitor,
+#custom-active-monitor.active {
+  color: @bg;
+  background-color: @blue;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @bg;
+}
+
+#custom-active-monitor {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+#custom-active-monitor:hover {
+  background-color: @bg;
+  color: @blue;
+}
+
+#mpris.icon {
+  font-size: 20px;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  border: none;
+}
+#mpris.status {
+  font-size: 19px;
+  padding: 0px 8px 0px 0px;
+  margin: 0px 0px;
+}
+#mpris.icon.spotify {
+  color: @green;
+}
+#mpris.icon.chromium,
+#mpris.icon.brave {
+  color: @red;
+}
+#mpris:hover {
+  background-color: @bg2;
+}
+#clock.au {
+  border-color: @bg2 @bg2 @orange @bg2;
+  border-width: 2px 0px;
+  border-style: solid;
+}
+#clock.nl {
+  border-color: @bg2 @bg2 @blue @bg2;
+  border-width: 2px 0px;
+  border-style: solid;
+}
+#clock.uk {
+  border-color: @bg2 @bg2 @purple @bg2;
+  border-width: 2px 0px;
+  border-style: solid;
+}
+#clock.us {
+  border-color: @bg2 @bg2 @red @bg2;
+  border-width: 2px 0px;
+  border-style: solid;
+}
+#taskbar {
+  background-color: @bg2;
+}
+#taskbar button:hover {
+  background-color: @bg;
+}

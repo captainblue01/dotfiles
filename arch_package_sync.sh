@@ -2,7 +2,24 @@
 
 # List of packages from the official repositories
 official_packages=(
-  # Qtile System
+  # Qtile Syste
+  qtile 
+  kanshi
+  python-psutil 
+  python-dbus-next
+  python-dateutil
+  python-pytz
+  python-pyxdg
+
+  # Hyprland
+  hyprland
+  hypridle
+  hyprlock
+  hyprpolkitagent
+  hyprpaper
+  jq
+
+  # Utils
   cliphist
   fish
   tmux
@@ -18,22 +35,14 @@ official_packages=(
   gvfs-smb
   neofetch 
   neovim 
-  python-psutil 
-  python-dateutil
   thunar
   pulsemixer
   pavucontrol
   qt5ct 
   qt6ct 
   qalculate-gtk 
-  qtile 
-  python-dbus-next
   polkit-gnome
-  python-pytz
   ntfs-3g
-  python-dbus-fast
-  kanshi
-  python-pyxdg
   tumbler
   ffmpegthumbnailer
 
@@ -45,16 +54,15 @@ official_packages=(
   qt5-wayland
   qt6-wayland
 
-
   # Launcher
   rofi-wayland
   rofi-emoji
   fuzzel
   
   # Screenshot tools
-grim
-slurp
-satty
+  slurp
+  grim
+  satty
 
   # Fonts
   ttf-dejavu 
@@ -64,7 +72,6 @@ satty
   noto-fonts-cjk 
   noto-fonts-emoji 
   noto-fonts-extra 
-
 
   # Utils
   tldr
@@ -95,7 +102,7 @@ satty
   # LF Support
   ueberzugpp
   glow
-   lf 
+  lf 
   imagemagick
   poppler
   bat 
@@ -104,11 +111,10 @@ satty
   docx2txt 
   odt2txt 
   fzf
-  trash-cli # findutils
+  trash-cli
 
   # Qutebrowser Support
   qutebrowser 
-  # yt-dlp 
   pdfjs
   python-adblock 
   python-tldextract
