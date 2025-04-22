@@ -11,7 +11,7 @@
     "height": 27,
 
     "modules-left": [
-      "custom/active-monitor",
+      "hyprland/workspaces#indicator",
       "group/tasklist"
     ],
     "modules-center": [
@@ -71,12 +71,13 @@
       // "sort-by": "number",
       "all-outputs": true,
     },
-    "custom/active-monitor": {
-        "exec": "~/.config/waybar/waybar-active-monitor.sh",
-        "return-type": "json",
-        "persistent": true,
-        "on-click": "fuzzel"
+
+    "hyprland/workspaces#indicator": {
+      "active-only":true,
+      // "sort-by": "number",
+      // "all-outputs": true,
     },
+
     "hyprland/window": {
       "seperate-outputs": true,
       "icon-size": 18,
