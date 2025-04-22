@@ -12,6 +12,7 @@ config/qutebrowser/bookmarks/
 config/qutebrowser/bookmarks/urls
 config/qutebrowser/quickmarks
 config/qutebrowser/autoconfig.yml
+config/hypr/monitors.conf
 config/lazygit/state.yml
 config/lf/bookmarks/
 .idea/
