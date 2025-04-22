@@ -18,6 +18,7 @@ official_packages=(
   hyprpolkitagent
   hyprpaper
   jq
+  socat
 
   # Utils
   cliphist

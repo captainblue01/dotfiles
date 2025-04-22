@@ -68,6 +68,7 @@
       ]
     },
     "hyprland/workspaces": {
+      // "sort-by": "number",
       "all-outputs": true,
     },
     "custom/active-monitor": {
