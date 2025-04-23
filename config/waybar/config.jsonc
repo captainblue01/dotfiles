@@ -68,14 +68,13 @@
       ]
     },
     "hyprland/workspaces": {
-      // "sort-by": "number",
+      "move-to-monitor": true,
       "all-outputs": true,
     },
 
     "hyprland/workspaces#indicator": {
+      "move-to-monitor": true,
       "active-only":true,
-      // "sort-by": "number",
-      // "all-outputs": true,
     },
 
     "hyprland/window": {
@@ -109,9 +108,10 @@
     "mpris#icon": {
       "format": "{player_icon}",
       "player-icons": {
-        "default": "𝅘𝅥𝅯",
+        "default": "󰎆",
         "spotify": "",
         "brave": "",
+        "firefox": "",
         "chromium": "",
       },
     },
