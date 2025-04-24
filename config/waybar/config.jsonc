@@ -78,6 +78,7 @@
     },
 
     "hyprland/window": {
+      "move-to-monitor": true,
       "seperate-outputs": true,
       "icon-size": 18,
       "icon": true
