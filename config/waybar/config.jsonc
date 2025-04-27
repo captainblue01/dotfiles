@@ -24,6 +24,8 @@
         "custom/spacer",
         "tray",
         "custom/spacer",
+        "group/performance",
+        "custom/spacer",
         "group/worldclock",
     ],
     // -------------------------------------------------------------------------
@@ -38,8 +40,6 @@
       },
       "modules": [
         "clock",
-        "clock#au",
-        "custom/spacer",
         "clock#nl",
         "custom/spacer",
         "clock#uk",
@@ -57,6 +57,15 @@
       "modules": [
         "hyprland/window",
         "wlr/taskbar"
+      ]
+    },
+    "group/performance": {
+      "orientation": "inherit",
+      "modules": [
+        "cpu",
+        "cpu#icon",
+        "memory",
+        "memory#icon",
       ]
     },
     "group/mpris": {
@@ -79,6 +88,7 @@
 
     "hyprland/window": {
       "move-to-monitor": true,
+      "max-length": 30,
       "seperate-outputs": true,
       "icon-size": 18,
       "icon": true
@@ -109,11 +119,11 @@
     "mpris#icon": {
       "format": "{player_icon}",
       "player-icons": {
-        "default": "󰎆",
-        "spotify": "",
-        "brave": "",
-        "firefox": "",
-        "chromium": "",
+        "default": "󰎆 ",
+        "spotify": " ",
+        "brave": " ",
+        "firefox": " ",
+        "chromium": " ",
       },
     },
     "mpris#statusplay": {
@@ -127,8 +137,8 @@
     "mpris#name": {
       "format": "{dynamic}",
       "dynamic-order": ["title","artist"],
-      "title-len": 33,
-      "dynamic-len": 38,
+      "title-len": 25,
+      "dynamic-len": 28,
       "dynamic-importance-order": ["title", "artist"],
     },
     "clock#us": {
@@ -154,6 +164,44 @@
       "interval": 1,
       "format": "AU, {:%a %I:%M:%S%p}",
       "tooltip-format": "{:%H:%M:%S, %A, %e %B %Y}"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "tooltip-format": "{used:1.0f}G/{total:1.0f}G "
+    },
+    "memory#icon": {
+         "interval": 1,
+         "format": "{icon}",
+         "format-icons": [
+              "<span color='#d0d1d1'>▁▁</span>",
+              "<span color='#d0d1d1'>▂▂</span>",
+              "<span color='#d0d1d1'>▃▃</span>",
+              "<span color='#d0d1d1'>▄▄</span>",
+              "<span color='#fbb750'>▅▅</span>",
+              "<span color='#fda308'>▆▆</span>",
+              "<span color='#de5d68'>▇▇</span>",
+              "<span color='#de5d68'>██</span>" 
+         ]
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        "max-length": 10
+    },
+    "cpu#icon": {
+         "interval": 1,
+         "format": "{icon} ",
+         "format-icons": [
+              "<span color='#d0d1d1'>▁▁</span>",
+              "<span color='#d0d1d1'>▂▂</span>",
+              "<span color='#d0d1d1'>▃▃</span>",
+              "<span color='#d0d1d1'>▄▄</span>",
+              "<span color='#fbb750'>▅▅</span>",
+              "<span color='#fda308'>▆▆</span>",
+              "<span color='#de5d68'>▇▇</span>",
+              "<span color='#de5d68'>██</span>" 
+         ]
     },
 
     "clock": {

@@ -28,7 +28,7 @@
   min-height: 0;
   margin: 0;
   padding: 0;
-  font-family: "JetBrainsMono Nerd Font Mono", sans-serif;
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
   font-size: 13px;
 }
 
@@ -43,6 +43,8 @@
 #group-worldclock,
 #clock,
 #tray,
+#cpu,
+#memory,
 #custom-spacer {
   padding-left: 4px;
   padding-right: 4px;
@@ -125,25 +127,12 @@
   color: @bg;
 }
 
-#custom-active-monitor {
-  padding-right: 10px;
-  padding-left: 10px;
-  font-size: 20px;
-}
-
-#custom-active-monitor:hover {
-  background-color: @bg;
-  color: @blue;
-}
-
 #mpris.icon {
-  font-size: 20px;
   padding: 0px 0px;
   margin: 0px 0px;
   border: none;
 }
 #mpris.status {
-  font-size: 19px;
   padding: 0px 8px 0px 0px;
   margin: 0px 0px;
 }
@@ -151,6 +140,7 @@
   color: @green;
 }
 #mpris.icon.chromium,
+#mpris.icon.firefox,
 #mpris.icon.brave {
   color: @red;
 }
@@ -182,4 +172,10 @@
 }
 #taskbar button:hover {
   background-color: @bg;
+}
+
+#cpu.icon,
+#memory.icon {
+  font-size: 7px;
+  font-weight: 100;
 }
