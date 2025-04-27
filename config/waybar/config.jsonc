@@ -12,9 +12,7 @@
 
     "modules-left": [
       "hyprland/workspaces#indicator",
-      "group/tasklist"
-    ],
-    "modules-center": [
+      "group/tasklist",
     ],
     "modules-right": [
         "hyprland/submap",
@@ -27,6 +25,7 @@
         "group/performance",
         "custom/spacer",
         "group/worldclock",
+        "custom/fullscreen",
     ],
     // -------------------------------------------------------------------------
     // Modules
@@ -212,6 +211,12 @@
     "tray": {
         "icon-size": 18,
         "spacing": 8
+    },
+    "custom/fullscreen": {
+        "exec": "/path/to/fullscreen_status.sh",
+        "interval": 0,
+        "return-type": "json",
+        "signal": 9
     },
     "wlr/taskbar": {
         "format": " {icon} {title} {short_state} ",
