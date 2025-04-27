@@ -129,7 +129,7 @@ cmd open-with-gui &$@ $fx
 cmd open-with-cli $$@ $fx
 
 cmd fzf_jump ${{
-	res="$(find . | fzf --bind=tab:down,btab:up --reverse --header='Jump to location')"
+	res="$(fd --follow --type f --hidden --exclude '.*' | fzf --bind=tab:down,btab:up --reverse --header='Jump to location')"
 	if [ -n "$res" ]; then
 		if [ -d "$res" ]; then
 			cmd="cd"
