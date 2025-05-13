@@ -167,20 +167,20 @@
     "memory": {
         "interval": 30,
         "format": " {}%",
-        "tooltip-format": " {used:1.0f}G/{total:1.0f}G"
+        "tooltip-format": " {used:1.0f}G/{total:1.0f}G {swapUsed}G/{swapTotal}G"
     },
     "memory#icon": {
          "interval": 1,
          "format": "{icon}",
-         "tooltip-format": " {used:1.0f}G/{total:1.0f}G",
+         "tooltip-format": " {used:1.0f}G/{total:1.0f}G {swapUsed}G/{swapTotal}G",
          "format-icons": [
               "<span color='#d0d1d1'>▁▁</span>",
               "<span color='#d0d1d1'>▂▂</span>",
               "<span color='#d0d1d1'>▃▃</span>",
               "<span color='#d0d1d1'>▄▄</span>",
               "<span color='#fbb750'>▅▅</span>",
-              "<span color='#fda308'>▆▆</span>",
-              "<span color='#de5d68'>▇▇</span>",
+              "<span color='#fbb750'>▆▆</span>",
+              "<span color='#fda308'>▇▇</span>",
               "<span color='#de5d68'>██</span>" 
          ]
     },
