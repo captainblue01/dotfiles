@@ -1,31 +1,31 @@
 [colors]
 [colors.bright]
-black = "0xD0D1D1"
-blue = "0x61B6EA"
-cyan = "0x4CACE6"
-green = "0x76BB59"
-magenta = "0xC97DD8"
-red = "0xED5A66"
-white = "0xF8F8F2"
-yellow = "0xFDC64E"
+black = "0x57585b"
+blue = "0x4cace6"
+cyan = "0x2CCADB"
+green = "0x76bb59"
+magenta = "0xbf67d6"
+red = "0xde5d68"
+white = "0xd0d1d1"
+yellow = "0xfbb750"
 
 
 [colors.normal]
 black = "0x111112"
-blue = "0x339EEB"
-cyan = "0x18B5CD"
-green = "0x6CB44D"
-magenta = "0xBF67D6"
-red = "0xde5d68"
+blue = "0x368FE2"
+cyan = "0x18b5cd"
+green = "0x64B143"
+magenta = "0xaa57d1"
+red = "0xDE3F4C"
 white = "0xD0D1D1"
-yellow = "0xFBB750"
+yellow = "0xfda308"
 
 [colors.primary]
 background = "0x222224"
-foreground = "0xBCBEC1"
+foreground = "0xd0d1d1"
 
 [font]
-size = 12
+size = 13
 
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"
@@ -45,7 +45,7 @@ style = "Regular"
 
 [window]
 dynamic_padding = true
-padding = {x = 8, y = 8}
+padding = {x = 10, y = 10}
 opacity = 0.95
 
 [env]

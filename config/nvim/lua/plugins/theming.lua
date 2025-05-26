@@ -23,7 +23,7 @@ local lualine_theme = {
 		z = { fg = colors.fg, bg = colors.bg1 },
 	},
 	normal = {
-		a = { fg = colors.bg, bg = colors.cyan, gui = "bold" },
+		a = { fg = colors.bg, bg = colors.blue, gui = "bold" },
 		b = { fg = colors.fg, bg = colors.bg2, gui = "bold" },
 		c = { fg = colors.fg, bg = colors.bg, gui = "bold" },
 	},
@@ -31,7 +31,7 @@ local lualine_theme = {
 	replace = { a = { fg = colors.bg, bg = colors.red, gui = "bold" } },
 	insert = { a = { fg = colors.bg, bg = colors.green, gui = "bold" } },
 	command = { a = { fg = colors.bg, bg = colors.yellow, gui = "bold" } },
-	terminal = { a = { fg = colors.bg, bg = colors.cyan, gui = "bold" } },
+	terminal = { a = { fg = colors.bg, bg = colors.blue, gui = "bold" } },
 }
 local function spacer()
 	return "◉"
