@@ -184,14 +184,14 @@ map af :push %touch<space>
 
 # Movement
 map gd cd ~/Downloads
-map gn cd ~/notes
+map gn cd ~/Notes
 map g/ cd /
 map gh cd ~
 map gi cd ~/Nextcloud/
 map gc cd ~/.config
 map gb cd ~/.config/lf/bookmarks/
 map gt cd ~/.local/share/Trash/files
-map gr cd ~/projects/
+map gr cd ~/Projects/
 map gm cd /run/media/
 map L jump-next
 map H jump-prev
