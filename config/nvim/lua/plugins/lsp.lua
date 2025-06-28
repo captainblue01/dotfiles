@@ -41,6 +41,19 @@ return {
 						-- capabilities = capabilities,
 					})
 				end,
+				["phpactor"] = function()
+					require("lspconfig").phpactor.setup({
+						on_attach = on_attach,
+						capabilities = capabilities,
+						default_config = {
+							cmd = { "phpactor", "language-server", "-vvv" },
+							filetypes = { "php" },
+							root_dir = function()
+								return vim.fn.expand("%:p:h")
+							end,
+						},
+					})
+				end,
 				["lua_ls"] = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.lua_ls.setup({
@@ -57,6 +70,7 @@ return {
 				end,
 			},
 		})
+
 		-- Snippets
 		local ls = require("luasnip")
 		require("luasnip.loaders.from_vscode").lazy_load()

@@ -211,6 +211,7 @@ keymap(
 keymap("n", "<leader>ft", "<cmd>Telescope live_grep<cr>", vim.tbl_extend("force", opts, { desc = "Live Grep" }))
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", vim.tbl_extend("force", opts, { desc = "Find Help" }))
 keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", vim.tbl_extend("force", opts, { desc = "Open Recent" }))
+keymap("n", "<leader>fp", "<cmd>Telescope projects<cr>", vim.tbl_extend("force", opts, { desc = "Find Project" }))
 keymap(
 	"n",
 	"<leader>f/",

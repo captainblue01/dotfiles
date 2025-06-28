@@ -33,6 +33,10 @@ local m = {
 		},
 		cond = not vim.g.vscode,
 	},
+	{
+		"drkjeff16/project.nvim",
+		cond = not vim.g.vscode,
+	},
 }
 
 m[1].config = function()
@@ -107,6 +111,17 @@ m[2].config = function()
 					},
 				},
 			},
+		},
+	})
+end
+
+m[3].config = function()
+	require("telescope").load_extension("projects")
+	require("project_nvim").setup({
+		show_hidden = true,
+		update_focused_file = {
+			enable = true,
+			update_root = true,
 		},
 	})
 end
