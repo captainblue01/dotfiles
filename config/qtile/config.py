@@ -22,7 +22,7 @@ file_man = os.path.expanduser("~/.config/lf/lfrun")
 desktopwallpapers = os.path.expanduser("~/.config/desktopwallpapers/")
 if qtile.core.name == "wayland":
     apps = {
-        "web_browser": "qutebrowser",
+        "web_browser": "brave",
         "terminal": "alacritty -e tmux new-session -A -s tty",
         "nterminal": f"alacritty -e {tmux_browser}",
         # Launches in a dropdown

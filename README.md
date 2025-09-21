@@ -10,7 +10,14 @@
 
 ## Screenshots
 
+### Hyprland
+
+[link to repo](https://gitlab.com/captainblue01/dotfiles/-/tree/main/config/hypr)<br>
+![hyprland](https://i.imgur.com/3akfBUX.png)
+
 ### Qtile
+
+> I no longer use Qtile, so these config files may be out of date.
 
 [link to repo](https://gitlab.com/captainblue01/dotfiles/-/tree/main/config/qtile) <br>
 ![qtile](https://i.imgur.com/gp7o6Xj.png)
