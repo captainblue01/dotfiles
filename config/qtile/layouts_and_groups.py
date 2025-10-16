@@ -69,13 +69,14 @@ class Groups:
             Group("6", layout="columns"),
             Group("7", layout="columns"),
             Group("8", layout="columns"),
-            Group("9", layout="columns"),
-            Group("0", layout="verticaltile"),
-            Group("Q", layout="columns"),
-            Group("W", layout="columns"),
+            Group("9", label="Vid", layout="columns"),
+            Group("0", label="Comms", layout="verticaltile"),
+            Group("Q", label="Dev", layout="columns"),
+            Group("W", label="Web", layout="columns"),
             Group(
                 "E",
                 layout="columns",
+                label="Email",
                 matches=[Match(wm_class="Mail"), Match(title="thunderbird")],
             ),
         ]

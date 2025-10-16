@@ -41,63 +41,12 @@ class Widgets:
             ),
         ]
         self.primary_widgets = [
-            # widet.TextBox(text="⏭"),
-            widget.WidgetBox(
-                widgets=[
-                    widget.Spacer(10, background=colors["dark1"]),
-                    widget.Clock(
-                        timezone="US/Central",
-                        format="US, %a %I:%M%p",
-                        mouse_callbacks={
-                            "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
-                        },
-                        background=colors["dark1"],
-                    ),
-                    widget.Sep(
-                        foreground=colors["grey2"],
-                        linewidth=2,
-                        size_percent=40,
-                        padding=4,
-                        background=colors["dark1"],
-                    ),
-                    widget.Clock(
-                        timezone="Europe/Amsterdam",
-                        format="EU, %a %I:%M%p",
-                        mouse_callbacks={
-                            "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
-                        },
-                        background=colors["dark1"],
-                    ),
-                    widget.Sep(
-                        foreground=colors["grey2"],
-                        linewidth=2,
-                        size_percent=40,
-                        padding=4,
-                        background=colors["dark1"],
-                    ),
-                    widget.Clock(
-                        timezone="Europe/London",
-                        format="UK, %a %I:%M%p",
-                        mouse_callbacks={
-                            "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
-                        },
-                        background=colors["dark1"],
-                    ),
-                ],
-                close_button_location="right",
-                background=colors["dark1"],
-                text_open="-",
-                text_closed="+",
-                fontsize=15,
-                padding=10,
-            ),
             widget.Prompt(
                 foreground=colors["dark4"],
                 cursor_color=colors["dark4"],
                 background=colors["green"],
                 margin=8,
             ),
-            # widget.TextBox(text="⏮"),
             widget.Mpris2(
                 paused_text="⏸  {track}",
                 playing_text="⏵  {track}",
@@ -105,9 +54,22 @@ class Widgets:
                 width=350,
                 no_metadata_text="𝅘𝅥𝅯",
                 stopped_text="⏹",
-                background=colors["dark1"],
+                background=colors["dark3"],
                 padding=10,
             ),
+            widget.Spacer(5, background=colors["dark3"]),
+            widget.CPU(
+                background=colors["dark1"], format=" {freq_current}GHz {load_percent}%"
+            ),
+            widget.Sep(
+                foreground=colors["grey2"],
+                linewidth=2,
+                size_percent=40,
+                padding=4,
+                background=colors["dark1"],
+                mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+            ),
+            widget.Memory(background=colors["dark1"], format=" {MemPercent}%"),
         ]
 
         self.center_widgets = [
@@ -131,27 +93,84 @@ class Widgets:
         ]
         self.right_widgets = [
             widget.Spacer(5, background=colors["dark1"]),
-            widget.Spacer(5, background=colors["dark1"]),
+            widget.WidgetBox(
+                widgets=[
+                    widget.Sep(
+                        foreground=colors["grey2"],
+                        linewidth=2,
+                        size_percent=40,
+                        padding=4,
+                        background=colors["dark1"],
+                        mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                    ),
+                    widget.Clock(
+                        timezone="US/Central",
+                        format="US, %a %I:%M%p",
+                        background=colors["dark1"],
+                        mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                    ),
+                    widget.Sep(
+                        foreground=colors["grey2"],
+                        linewidth=2,
+                        size_percent=40,
+                        padding=4,
+                        background=colors["dark1"],
+                        mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                    ),
+                    widget.Clock(
+                        timezone="Europe/Amsterdam",
+                        format="EU, %a %I:%M%p",
+                        background=colors["dark1"],
+                        mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                    ),
+                    widget.Sep(
+                        foreground=colors["grey2"],
+                        linewidth=2,
+                        size_percent=40,
+                        padding=4,
+                        background=colors["dark1"],
+                        mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                    ),
+                    widget.Clock(
+                        timezone="Europe/London",
+                        format="UK, %a %I:%M%p",
+                        background=colors["dark1"],
+                        mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                    ),
+                    widget.Sep(
+                        foreground=colors["grey2"],
+                        linewidth=2,
+                        size_percent=40,
+                        padding=4,
+                        background=colors["dark1"],
+                        mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                    ),
+                ],
+                close_button_location="right",
+                background=colors["dark1"],
+                text_open="",
+                text_closed="",
+                fontsize=15,
+                mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
+                padding=10,
+            ),
             widget.Clock(
                 format="󰃮 %a, %B %d",
-                mouse_callbacks={
-                    "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
-                },
+                mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
                 background=colors["dark1"],
             ),
             widget.Sep(
                 foreground=colors["grey2"],
                 linewidth=2,
                 size_percent=40,
+                mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
                 padding=4,
                 background=colors["dark1"],
             ),
             widget.Clock(
                 timezone="Australia/Brisbane",
                 format="%I:%M:%S%p",
-                mouse_callbacks={
-                    "Button1": lazy.group["󱇚"].dropdown_toggle("calendar")
-                },
+                mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
                 background=colors["dark1"],
             ),
             widget.Sep(
@@ -162,7 +181,8 @@ class Widgets:
                 background=colors["dark1"],
             ),
             widget.Spacer(5, background=colors["dark1"]),
-            widget.CurrentLayoutIcon(
+            widget.CurrentLayout(
+                mode="icon",
                 scale=0.5,
                 foreground=colors["white"],
                 padding=0,

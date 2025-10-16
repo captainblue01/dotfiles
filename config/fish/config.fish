@@ -13,6 +13,11 @@ if test -d "$HOME/.local/bin"
     set -gx PATH "$HOME/.local/bin" $PATH
 end
 
+# 
+if test -d "$HOME/.sfcli/sf/bin"
+    set -gx PATH "$HOME/.sfcli/sf/bin" $PATH
+end
+
 ### ALIASES ###
 # fuzzy cd
 function cdf

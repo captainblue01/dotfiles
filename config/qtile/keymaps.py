@@ -112,13 +112,13 @@ class Keybinds:
             Key(
                 [],
                 "XF86AudioNext",
-                lazy.spawn("mpris2controller Next"),
+                lazy.spawn("playerctl next"),
                 desc="Skip to next",
             ),
             Key(
                 [],
                 "XF86AudioPrev",
-                lazy.spawn("mpris2controller Previous"),
+                lazy.spawn("playerctl previous"),
                 desc="Skip to Previous",
             ),
         ]

@@ -37,7 +37,7 @@ if qtile.core.name == "wayland":
         "find_file": f"alacritty -T File\ Finder -e {search_script}",
         "music_player": "spotify-launcher",  # Launches in a dropdown
         "password_manager": "bitwarden-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland",  # Launches in a dropdown
-        "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
+        "notes": f"alacritty -T Notes --working-directory Notes -e tmux new-session -A -s notes nvim",
     }
 else:
     apps = {
@@ -52,11 +52,11 @@ else:
         "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
         "application_launcher": "rofi -show drun -monitor -1 -theme infinity-list",
         "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
-        "clipboard": "cliphist list | fuzzel --dmenu",
+        "clipboard": "env CM_LAUNCHER='rofi' clipmenu",
         "find_file": f"alacritty -T File\ Finder -e {search_script}",
         "music_player": "spotify-launcher",  # Launches in a dropdown
         "password_manager": "bitwarden-desktop",  # Launches in a dropdown
-        "notes": f"alacritty -T Notes --working-directory notes -e tmux new-session -A -s notes nvim",
+        "notes": f"alacritty -T Notes --working-directory Notes -e tmux new-session -A -s notes nvim",
     }
 
 
@@ -114,8 +114,8 @@ wmname = "LG3D"  # This is false this is just to help with java UI tookits
 
 # Screens
 main_screen = False
-if os.path.exists(os.path.expanduser("/tmp/.screens")):
-    with open(os.path.expanduser("/tmp/.screens")) as file:
+if os.path.exists(os.path.expanduser("~/.screens")):
+    with open(os.path.expanduser("~/.screens")) as file:
         lines = file.readlines()
         screen_count = int(lines[0])
         if len(lines) > 1:
