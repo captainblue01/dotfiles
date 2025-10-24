@@ -34,8 +34,17 @@ local m = {
 		cond = not vim.g.vscode,
 	},
 	{
-		"drkjeff16/project.nvim",
-		cond = not vim.g.vscode,
+		"DrKJeff16/project.nvim",
+		version = false, -- Get the latest release
+		dependencies = { -- OPTIONAL
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"ibhagwan/fzf-lua",
+		},
+		---@module 'project'
+
+		---@type Project.Config.Options
+		opts = {},
 	},
 }
 
@@ -111,17 +120,6 @@ m[2].config = function()
 					},
 				},
 			},
-		},
-	})
-end
-
-m[3].config = function()
-	require("telescope").load_extension("projects")
-	require("project").setup({
-		show_hidden = true,
-		update_focused_file = {
-			enable = true,
-			update_root = true,
 		},
 	})
 end
