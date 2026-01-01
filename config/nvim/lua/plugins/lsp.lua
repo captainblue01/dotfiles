@@ -29,7 +29,7 @@ return {
 				"lua_ls", -- LUA
 				"html", -- HTML
 				"cssls", -- CSS
-				"jedi_language_server", -- Python
+				-- "jedi_language_server", -- Python
 				"phpactor", -- PHP
 				"intelephense", -- PHP
 			},

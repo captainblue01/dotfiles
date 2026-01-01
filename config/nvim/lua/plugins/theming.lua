@@ -52,11 +52,6 @@ local m = {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		cond = not vim.g.vscode,
 	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = {},
-	},
 }
 
 m[1].config = function()
