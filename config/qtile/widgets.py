@@ -71,28 +71,7 @@ class Widgets:
             ),
             widget.Memory(background=colors["dark1"], format=" {MemPercent}%"),
         ]
-
-        self.center_widgets = [
-            widget.GroupBox(
-                fontsize=14,
-                highlight_method="block",
-                this_current_screen_border=colors["blue"],
-                this_screen_border=colors["magenta"],
-                other_current_screen_border=colors["grey1"],
-                other_screen_border=colors["grey1"],
-                active=colors["white"],
-                block_highlight_text_color=colors["dark4"],
-                disable_drag=False,
-                use_mouse_wheel=False,
-                inactive=colors["grey1"],
-                rounded=False,
-                background=colors["dark1"],
-                margin_x=0,
-                hide_unused=True,
-            ),
-        ]
-        self.right_widgets = [
-            widget.Spacer(5, background=colors["dark1"]),
+        self.primary_widgets_two = [
             widget.WidgetBox(
                 widgets=[
                     widget.Sep(
@@ -145,6 +124,10 @@ class Widgets:
                         background=colors["dark1"],
                         mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
                     ),
+                    widget.StatusNotifier(
+                        foreground=colors["grey2"],
+                        background=colors["dark1"],
+                    ),
                 ],
                 close_button_location="right",
                 background=colors["dark1"],
@@ -154,6 +137,29 @@ class Widgets:
                 mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
                 padding=10,
             ),
+        ]
+
+        self.center_widgets = [
+            widget.GroupBox(
+                fontsize=14,
+                highlight_method="block",
+                this_current_screen_border=colors["blue"],
+                this_screen_border=colors["magenta"],
+                other_current_screen_border=colors["grey1"],
+                other_screen_border=colors["grey1"],
+                active=colors["white"],
+                block_highlight_text_color=colors["dark4"],
+                disable_drag=False,
+                use_mouse_wheel=False,
+                inactive=colors["grey1"],
+                rounded=False,
+                background=colors["dark1"],
+                margin_x=0,
+                hide_unused=True,
+            ),
+        ]
+        self.right_widgets = [
+            widget.Spacer(5, background=colors["dark1"]),
             widget.Clock(
                 format="󰃮 %a, %B %d",
                 mouse_callbacks={"Button1": lazy.widget["widgetbox"].toggle()},
@@ -237,6 +243,7 @@ class Widgets:
             + self.primary_widgets
             + self.center_widgets
             + self.laptop_widgets()
+            + self.primary_widgets_two
             + self.right_widgets
         )
 
