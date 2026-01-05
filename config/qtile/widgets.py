@@ -159,6 +159,13 @@ class Widgets:
             ),
         ]
         self.right_widgets = [
+            widget.Sep(
+                foreground=self.colors["grey2"],
+                linewidth=2,
+                background=self.colors["dark1"],
+                size_percent=40,
+                padding=4,
+            ),
             widget.Spacer(5, background=colors["dark1"]),
             widget.Clock(
                 format="󰃮 %a, %B %d",
@@ -207,6 +214,13 @@ class Widgets:
             return []
         else:
             return [
+                widget.Sep(
+                    foreground=self.colors["grey2"],
+                    linewidth=2,
+                    background=self.colors["dark1"],
+                    size_percent=40,
+                    padding=4,
+                ),
                 widget.Spacer(3, background=self.colors["dark1"]),
                 widget.BatteryIcon(
                     scale=1.2,
@@ -227,13 +241,6 @@ class Widgets:
                     mouse_callbacks={
                         "Button1": lazy.group["󱇚"].dropdown_toggle("power_manager")
                     },
-                ),
-                widget.Sep(
-                    foreground=self.colors["grey2"],
-                    linewidth=2,
-                    background=self.colors["dark1"],
-                    size_percent=40,
-                    padding=4,
                 ),
             ]
 
