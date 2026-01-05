@@ -157,6 +157,7 @@ class Widgets:
                 margin_x=0,
                 hide_unused=True,
             ),
+            widget.Spacer(5, background=colors["dark1"]),
         ]
         self.right_widgets = [
             widget.Sep(
