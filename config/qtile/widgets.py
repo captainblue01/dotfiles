@@ -201,7 +201,7 @@ class Widgets:
             return []
         else:
             return [
-                widget.Spacer(5, background=self.colors["dark1"]),
+                widget.Spacer(3, background=self.colors["dark1"]),
                 widget.BatteryIcon(
                     scale=1.2,
                     theme_path="~/.config/qtile/icons/",
