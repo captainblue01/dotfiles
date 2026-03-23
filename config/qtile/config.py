@@ -1,213 +1,211 @@
 import os
-import random
-import subprocess
 
-import keymaps
-import layouts_and_groups
-import widgets
-from libqtile import bar, hook, qtile
-from libqtile.config import Screen
+import libqtile.resources
+from libqtile import bar, layout, qtile, widget
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.lazy import lazy
+from libqtile.utils import guess_terminal
 
+mod = "mod4"
+terminal = guess_terminal()
 
-def get_wallpaper(folder):
-    all_files = os.listdir(folder)
-    random_image = random.choice(all_files)
-    random_image_path = os.path.join(folder, random_image)
-    return random_image_path
+keys = [
+    # A list of available commands that can be bound to keys can be found
+    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+    # Switch between windows
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    # Move windows between left/right columns or move up/down in current stack.
+    # Moving out of range in Columns layout will create new column.
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    # Grow windows. If current window is on the edge of screen and direction
+    # will be to screen edge - window would shrink.
+    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    # Toggle between split and unsplit sides of stack.
+    # Split = all windows displayed
+    # Unsplit = 1 window displayed, like Max layout, but still with
+    # multiple stack panes
+    Key(
+        [mod, "shift"],
+        "Return",
+        lazy.layout.toggle_split(),
+        desc="Toggle between split and unsplit sides of stack",
+    ),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    # Toggle between different layouts as defined below
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key(
+        [mod],
+        "f",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen on the focused window",
+    ),
+    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+]
 
-
-search_script = os.path.expanduser("~/.config/qtile/scripts/find_file")
-tmux_browser = os.path.expanduser("~/.config/tmux/scripts/tmux-browser")
-file_man = os.path.expanduser("~/.config/lf/lfrun")
-desktopwallpapers = os.path.expanduser("~/.config/desktopwallpapers/")
-if qtile.core.name == "wayland":
-    apps = {
-        "web_browser": "brave",
-        "terminal": "alacritty -e tmux new-session -A -s tty",
-        "nterminal": f"alacritty -e {tmux_browser}",
-        # Launches in a dropdown
-        "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
-        "calculator": "qalculate-gtk",  # launches in a dropdown
-        "email": "thunderbird",
-        "screenshot_software": os.path.expanduser("~/.config/satty/screenshot"),
-        "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
-        "application_launcher": "fuzzel",
-        "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
-        "clipboard": os.path.expanduser("~/.config/fuzzel/cliphist"),
-        "find_file": f"alacritty -T File\ Finder -e {search_script}",
-        "music_player": "spotify-launcher",  # Launches in a dropdown
-        "password_manager": "bitwarden-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland",  # Launches in a dropdown
-        "notes": f"alacritty -T Notes --working-directory Notes -e tmux new-session -A -s notes nvim",
-    }
-else:
-    apps = {
-        "web_browser": "qutebrowser",
-        "terminal": "alacritty -e tmux new-session -A -s tty",
-        "nterminal": f"alacritty -e {tmux_browser}",
-        # Launches in a dropdown
-        "file_manager": f"alacritty -T 'File Manager' -e tmux new-session -A -s files '{file_man}'",
-        "calculator": "qalculate-gtk",  # launches in a dropdown
-        "email": "thunderbird",
-        "screenshot_software": "flameshot gui",
-        "emoji_keyboard": "rofi -monitor -1 -show emoji -theme infinity-list",
-        "application_launcher": "rofi -show drun -monitor -1 -theme infinity-list",
-        "task_switcher": "rofi -show window -monitor -1 -theme infinity-list",
-        "clipboard": "env CM_LAUNCHER='rofi' clipmenu",
-        "find_file": f"alacritty -T File\ Finder -e {search_script}",
-        "music_player": "spotify-launcher",  # Launches in a dropdown
-        "password_manager": "bitwarden-desktop",  # Launches in a dropdown
-        "notes": f"alacritty -T Notes --working-directory Notes -e tmux new-session -A -s notes nvim",
-    }
-
-
-colors = {
-    "black": "#111112",
-    "dark4": "#222224",
-    "dark3": "#28282A",
-    "dark2": "#2E2E30",
-    "dark1": "#3C3C3E",
-    "grey2": "#6F7073",
-    "grey1": "#A0A1A2",
-    "grey0": "#D0D1D1",
-    "white": "#F8F8F2",
-    "blue": "#4CACE6",
-    "light_blue": "#61B6EA",
-    "light_yellow": "#FDC64E",
-    "yellow": "#FBB750",
-    "dark_yellow": "#FDA308",
-    "light_magenta": "#C97DD8",
-    "magenta": "#BF67D6",
-    "dark_magenta": "#AA57D1",
-    "green": "#7FBA67",
-    "dark_green": "#73BB54",
-    "orange": "#FF9E42",
-    "cyan": "#2CCADB",
-    "dark_cyan": "#37A8B7",
-    "light_red": "#ED5A66",
-    "red": "#DE5D68",
-    "dark_red": "#833b3b",
-}
-
-font = "JetBrainsMono Nerd Font Mono"
-
-
-widget_defaults = {
-    "font": font,
-    "fontsize": 13,
-    "padding": 8,
-    "background": f'{colors["dark3"]}',
-    "foreground": colors["white"],
-}
-
-# Boolean Variables
-auto_fullscreen = True
-bring_front_click = True
-cursor_warp = False
-focus_on_window_activation = "smart"
-follow_mouse_focus = False
-reconfigure_screens = True
-# If you have issues with steam games not minimizing set this to true
-auto_minimize = False
-dgroups_key_binder = None
-dgroups_app_rules = []
-wmname = "LG3D"  # This is false this is just to help with java UI tookits
-
-# Screens
-main_screen = False
-if os.path.exists(os.path.expanduser("~/.screens")):
-    with open(os.path.expanduser("~/.screens")) as file:
-        lines = file.readlines()
-        screen_count = int(lines[0])
-        if len(lines) > 1:
-            main_screen = int(lines[1])
-# elif os.getenv("SCREENS"):
-#     screen_count = int(os.environ["SCREENS"])
-#     if os.getenv("MAIN_SCREEN"):
-#         main_screen = int(os.environ["MAIN_SCREEN"])
-else:
-    screen_count = 1
-
-
-screens = []
-if screen_count > 1:
-
-    if main_screen:
-        for x in range(screen_count):
-            if x == main_screen - 1:
-                screens.append(
-                    Screen(
-                        top=bar.Bar(widgets.Widgets(colors, apps).get_widgets(), 26),
-                        wallpaper=get_wallpaper(desktopwallpapers),
-                        wallpaper_mode="fill",
-                    )
-                )
-            else:
-                screens.append(
-                    Screen(
-                        top=bar.Bar(
-                            widgets.Widgets(colors, apps).get_secondary_widgets(), 26
-                        ),
-                        wallpaper=get_wallpaper(desktopwallpapers),
-                        wallpaper_mode="fill",
-                    )
-                )
-
-    else:
-        for x in range(screen_count - 1):
-            if x == 1:
-                screens.append(
-                    Screen(
-                        top=bar.Bar(widgets.Widgets(colors, apps).get_widgets(), 26),
-                        wallpaper=get_wallpaper(desktopwallpapers),
-                        wallpaper_mode="fill",
-                    )
-                )
-            else:
-                screens.append(
-                    Screen(
-                        top=bar.Bar(
-                            widgets.Widgets(colors, apps).get_secondary_widgets(), 26
-                        ),
-                        wallpaper=get_wallpaper(desktopwallpapers),
-                        wallpaper_mode="fill",
-                    )
-                )
-
-else:
-    screens.append(
-        Screen(
-            top=bar.Bar(widgets.Widgets(colors, apps).get_widgets(), 26),
-            wallpaper=get_wallpaper(desktopwallpapers),
-            wallpaper_mode="fill",
+# Add key bindings to switch VTs in Wayland.
+# We can't check qtile.core.name in default config as it is loaded before qtile is started
+# We therefore defer the check until the key binding is run by using .when(func=...)
+for vt in range(1, 8):
+    keys.append(
+        Key(
+            ["control", "mod1"],
+            f"f{vt}",
+            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
+            desc=f"Switch to VT{vt}",
         )
     )
 
 
-# Layouts & Groups
-qtile_groups = layouts_and_groups.Groups()
-groups = qtile_groups.get_groups(apps)
-qtile_layouts = layouts_and_groups.Layouts(colors, font)
-layouts = qtile_layouts.get_layouts()
-floating_layout = qtile_layouts.get_floating_layout()
+groups = [Group(i) for i in "123456789"]
 
-# Keymaps (edit under keymaps.py)
-keybinds = keymaps.Keybinds()
-keys = keybinds.generate_keybinds(apps, qtile_groups.groups)
-mouse = keybinds.generate_mouse_keybinds()
+for i in groups:
+    keys.extend(
+        [
+            # mod + group number = switch to group
+            Key(
+                [mod],
+                i.name,
+                lazy.group[i.name].toscreen(),
+                desc=f"Switch to group {i.name}",
+            ),
+            # mod + shift + group number = switch to & move focused window to group
+            Key(
+                [mod, "shift"],
+                i.name,
+                lazy.window.togroup(i.name, switch_group=True),
+                desc=f"Switch to & move focused window to group {i.name}",
+            ),
+            # Or, use below if you prefer not to switch to that group.
+            # # mod + shift + group number = move focused window to group
+            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+            #     desc="move focused window to group {}".format(i.name)),
+        ]
+    )
 
-# Autostart
-# Runs the auto start script on system startup
+layouts = [
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Max(),
+    # Try more layouts by unleashing below layouts.
+    # layout.Stack(num_stacks=2),
+    # layout.Bsp(),
+    # layout.Matrix(),
+    # layout.MonadTall(),
+    # layout.MonadWide(),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.TreeTab(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
+]
 
+widget_defaults = dict(
+    font="sans",
+    fontsize=12,
+    padding=3,
+)
+extension_defaults = widget_defaults.copy()
 
-@hook.subscribe.screen_change
-def screen_change(event):
-    qtile.reconfigure_screens()
+logo = os.path.join(os.path.dirname(libqtile.resources.__file__), "logo.png")
+screens = [
+    Screen(
+        bottom=bar.Bar(
+            [
+                widget.CurrentLayout(),
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.TextBox("default config", name="default"),
+                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
+                # widget.StatusNotifier(),
+                widget.Systray(),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.QuickExit(),
+            ],
+            24,
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
+        background="#000000",
+        wallpaper=logo,
+        wallpaper_mode="center",
+        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
+        # By default we handle these events delayed to already improve performance, however your system might still be struggling
+        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
+        # x11_drag_polling_rate = 60,
+    ),
+]
 
+# Drag floating layouts.
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
+]
 
-@hook.subscribe.startup_once
-def autostart():
-    if qtile.core.name == "x11":
-        autostart = os.path.expanduser("~/.config/qtile/scripts/autostart-x11")
-    elif qtile.core.name == "wayland":
-        autostart = os.path.expanduser("~/.config/qtile/scripts/autostart-wayland")
-    subprocess.call([autostart])
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: list
+follow_mouse_focus = True
+bring_front_click = False
+floats_kept_above = True
+cursor_warp = False
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
+auto_fullscreen = True
+focus_on_window_activation = "smart"
+focus_previous_on_window_remove = False
+reconfigure_screens = True
+
+# If things like steam games want to auto-minimize themselves when losing
+# focus, should we respect this or not?
+auto_minimize = True
+
+# When using the Wayland backend, this can be used to configure input devices.
+wl_input_rules = None
+
+# xcursor theme (string or None) and size (integer) for Wayland backend
+wl_xcursor_theme = None
+wl_xcursor_size = 24
+
+idle_inhibitors = []  # type: list
+
+# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
+# string besides java UI toolkits; you can see several discussions on the
+# mailing lists, GitHub issues, and other WM documentation that suggest setting
+# this string if your java app doesn't work correctly. We may as well just lie
+# and say that we're a working one by default.
+#
+# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
+# java that happens to be on java's whitelist.
+wmname = "LG3D"

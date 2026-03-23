@@ -3,9 +3,9 @@
  * -------------------------------------------------------------------------- */
 
 @define-color bg #222224;
-@define-color bg1 #28282a;
-@define-color bg2 #3c3c3e;
-@define-color bg3 #57585b;
+@define-color bg1 #3c3c3e;
+@define-color bg2 #57585b;
+@define-color gray #96979a;
 @define-color fg #d0d1d1;
 @define-color red #de5d68;
 @define-color green #76bb59;
@@ -15,7 +15,6 @@
 @define-color purple #bf67d6;
 @define-color dark_purple #aa57d1;
 @define-color cyan #18b5cd;
-@define-color gray #96979a;
 
 /* -----------------------------------------------------------------------------
  * Base styles
@@ -29,7 +28,7 @@
   margin: 0;
   padding: 0;
   font-family: "JetBrainsMono Nerd Font", sans-serif;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* The whole bar */
@@ -49,7 +48,7 @@
 #custom-spacer {
   padding-left: 4px;
   padding-right: 4px;
-  background-color: @bg2;
+  background-color: @bg1;
   color: @fg;
 }
 
@@ -104,36 +103,66 @@
   animation-duration: 2s;
 }
 
-#workspaces button {
-  padding-bottom: 2px;
-  padding-left: 8px;
-  padding-right: 8px;
-  color: @fg;
-  background-color: @bg2;
-}
 
-#workspaces button.visible {
-  color: @bg;
-  background-color: @gray;
-}
 
-#workspaces button.visible.hosting-monitor,
-#custom-active-monitor.inactive {
-  color: @bg;
-  background-color: @purple;
-}
-
-#workspaces button.active.hosting-monitor,
-#custom-active-monitor.active {
-  color: @bg;
-  background-color: @blue;
-}
-
+/* Workspaces */
 #workspaces button.urgent {
   background-color: @red;
   color: @bg;
 }
+#workspaces {
+  color: @fg;
+  background-color: @bg1;
+}
 
+#workspaces button.visible {
+  color: @fg;
+  background-color: @bg1;
+}
+#workspaces .workspace-label {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Taskbar */
+#workspaces.taskbar button {
+  color: @fg;
+  background-color: @bg;
+}
+#workspaces.taskbar .taskbar-window {
+  background-color: @bg;
+  color: @fg;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#workspaces.taskbar button.visible .workspace-label {
+  color: @bg;
+  background-color: @purple;
+}
+#workspaces.taskbar button.active .workspace-label {
+  color: @bg;
+  background-color: @blue;
+}
+#workspaces.taskbar .taskbar-window.active {
+    background-color: @bg1;
+}
+
+/* Picker */
+#workspaces.picker button.visible {
+  color: @bg;
+  background-color: @gray;
+}
+
+#workspaces.picker button.visible.hosting-monitor {
+  color: @bg;
+  background-color: @purple;
+}
+
+#workspaces.picker button.active.hosting-monitor {
+  color: @bg;
+  background-color: @blue;
+}
 #mpris.icon {
   padding: 0px 0px;
   margin: 0px 0px;
@@ -152,33 +181,27 @@
   color: @red;
 }
 #mpris:hover {
-  background-color: @bg2;
+  background-color: @bg1;
 }
 #clock.au {
-  border-color: @bg2 @bg2 @orange @bg2;
+  border-color: @bg1 @bg1 @orange @bg1;
   border-width: 2px 0px;
   border-style: solid;
 }
 #clock.nl {
-  border-color: @bg2 @bg2 @blue @bg2;
+  border-color: @bg1 @bg1 @blue @bg1;
   border-width: 2px 0px;
   border-style: solid;
 }
 #clock.uk {
-  border-color: @bg2 @bg2 @purple @bg2;
+  border-color: @bg1 @bg1 @purple @bg1;
   border-width: 2px 0px;
   border-style: solid;
 }
 #clock.us {
-  border-color: @bg2 @bg2 @red @bg2;
+  border-color: @bg1 @bg1 @red @bg1;
   border-width: 2px 0px;
   border-style: solid;
-}
-#taskbar {
-  background-color: @bg2;
-}
-#taskbar button:hover {
-  background-color: @bg;
 }
 
 #cpu.icon,
@@ -186,3 +209,4 @@
   font-size: 7px;
   font-weight: 100;
 }
+

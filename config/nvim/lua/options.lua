@@ -1,60 +1,100 @@
-o = vim.opt
+local o = vim.opt
 
--- Backup Settings
+-- Backup / undo
 o.backup = false
 o.writebackup = false
--- Line Number Settings
-o.number = true -- set numbered lines
-o.relativenumber = true -- set relative numbered lines
-o.numberwidth = 4 -- set number column width to 2 {default 4}
--- General Settings
-o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-o.title = true
-o.cmdheight = 1 -- more space in the neovim command line for displaying messages
-o.completeopt = { "menuone", "noselect" } -- mostly just for cmp
-o.conceallevel = 0 -- so that `` is visible in markdown files
-o.fileencoding = "utf-8" -- the encoding written to a file
-o.hlsearch = false -- highlight all matches on previous search pattern
-o.ignorecase = true -- ignore case in search patterns
-o.mouse = "a" -- allow the mouse to be used in neovim
-o.pumheight = 10 -- pop up menu height
-o.showmode = false -- we don't need to see things like -- INSERT -- anymore
-o.showtabline = 0 -- always show tabs
-o.smartcase = true -- smart case
-o.smartindent = false -- make indenting smarter again
-o.splitbelow = true -- force all horizontal splits to go below current window
-o.splitright = true -- force all vertical splits to go to the right of current window
-o.swapfile = true -- creates a swapfile
-o.termguicolors = true -- set term gui colors (most terminals support this)
-o.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
-o.undofile = true -- enable persistent undo
-o.updatetime = 300 -- faster completion (4000ms default)
-o.expandtab = true -- convert tabs to spaces
-o.shiftwidth = 2 -- the number of spaces inserted for each indentation
-o.tabstop = 2 -- insert 2 spaces for a tab
-o.cursorline = true -- highlight the current line
-o.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
-o.wrap = false -- display lines as one long line
-o.scrolloff = 8 -- is one of my fav
+o.swapfile = true
+o.undofile = true
+
+-- Line numbers
+o.number = true
+o.relativenumber = true
+o.numberwidth = 4
+
+-- General
+o.clipboard = "unnamedplus"
+o.cmdheight = 1
+o.completeopt = { "menuone", "noselect" }
+o.conceallevel = 0
+o.hlsearch = false
+o.ignorecase = true
+o.smartcase = true
+o.mouse = "a"
+o.pumheight = 10
+o.showmode = false
+o.showtabline = 0
+o.smartindent = false
+o.splitbelow = true
+o.splitright = true
+o.termguicolors = true
+o.timeoutlen = 1000
+o.updatetime = 300
+o.expandtab = true
+o.shiftwidth = 2
+o.tabstop = 2
+o.cursorline = true
+o.signcolumn = "yes"
+o.wrap = false
+o.scrolloff = 8
 o.sidescrolloff = 8
-o.guifont = "JetBrainsMono:h12" -- the font used in graphical neovim applications
-o.title = true -- the font used in graphical neovim applications
+
+-- Title
+o.title = true
 o.titlestring = "NVIM - %<%F%="
 o.titlelen = 100
-o.spelllang = "en_au"
--- o.spell = true
 
--- Folding is handled by lua/plugins/folding
-o.foldcolumn = "auto" -- '0' is not bad
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+-- GUI
+o.guifont = "JetBrainsMono:h12"
+
+-- Spell
+o.spelllang = "en_au"
+
+-- Folding defaults
+o.foldcolumn = "auto"
+o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true
+o.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" }
 
+-- Messages
 o.shortmess:append("c")
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]])
--- write and save current buffer
-vim.cmd("cnoreabbrev wd w\\|Bdelete")
--- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+-- Extra settings
+o.whichwrap:append("<,>,[,],h,l")
+o.iskeyword:append("-")
+
+-- NOTE: options.lua should only contain GLOBAL editor defaults.
+-- Do NOT put plugin-dependent or buffer-specific settings here.
+
+-- Things intentionally NOT configured here:
+
+-- • fileencoding
+--   - Buffer-local and usually unnecessary to set manually.
+--   - Neovim already defaults to UTF-8.
+
+-- • Bdelete command usage
+--   - Comes from bufdelete.nvim plugin.
+--   - Any mappings or commands using Bdelete should live in keymaps.lua.
+
+-- • Filetype-specific behaviour
+--   - Settings like wrap, spell, or indentation should be applied using:
+--     - FileType autocommands
+--     - after/ftplugin/*.lua files
+
+-- • Language-specific indentation
+--   - Example: Python shiftwidth=4
+--   - Should be configured via FileType autocommands.
+
+-- • Plugin UI overrides
+--   - Plugin buffers (nvim-tree, telescope, terminals, etc.)
+--   - Should adjust options using vim.opt_local inside plugin config or on_attach.
+
+-- • Folding providers
+--   - If using plugins like nvim-ufo or treesitter folding,
+--   - folding behaviour should be finalized in the plugin configuration.
+
+-- Rule of thumb:
+--   options.lua = editor defaults
+--   keymaps.lua = user keybindings
+--   plugins/*   = plugin-specific behaviour
+--   autocmds.lua / ftplugin = filetype or buffer-local overrides

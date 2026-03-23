@@ -1,4 +1,4 @@
-local m = {
+cal m = {
 	{
 		"nvchad/nvim-colorizer.lua",
 		cond = not vim.g.vscode,

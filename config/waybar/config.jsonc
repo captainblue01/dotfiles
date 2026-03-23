@@ -11,13 +11,12 @@
     "height": 27,
 
     "modules-left": [
-      "hyprland/workspaces#indicator",
-      "group/tasklist",
+      "hyprland/workspaces#taskbar",
     ],
     "modules-right": [
         "hyprland/submap",
         "group/mpris",
-        "hyprland/workspaces",
+        "hyprland/workspaces#picker",
         "battery",
         "custom/spacer",
         "tray",
@@ -47,17 +46,6 @@
         "custom/spacer",
       ]
     },
-    "group/tasklist": {
-      "orientation": "inherit",
-      "drawer": {
-          "transition-duration": 500,
-          "transition-left-to-right": false,
-      },
-      "modules": [
-        "hyprland/window",
-        "wlr/taskbar"
-      ]
-    },
     "group/performance": {
       "orientation": "inherit",
       "modules": [
@@ -75,14 +63,21 @@
         "mpris#name",
       ]
     },
-    "hyprland/workspaces": {
+    "hyprland/workspaces#picker": {
       "move-to-monitor": true,
-      "all-outputs": true,
+      "all-outputs": true
     },
-
-    "hyprland/workspaces#indicator": {
-      "move-to-monitor": true,
-      "active-only":true,
+    "hyprland/workspaces#taskbar": {
+        "format": "{icon}:{windows}",
+        "format-window-separator": " ",
+        "active-only":true,
+        "workspace-taskbar": {
+            "enable": true,
+            "update-active-window": true,
+            "format": "{icon} {title:.22}",
+            "icon-size": 18,
+            "on-click-window": "${SCRIPTS}/focus-window.sh {address} {button}"
+        }
     },
 
     "hyprland/window": {
@@ -218,20 +213,4 @@
         "interval": 1,
         "return-type": "json",
     },
-    "wlr/taskbar": {
-        "format": " {icon} {title} {short_state} ",
-        "icon-size": 18,
-        "active-first": true,
-        "spacing": 3,
-        "all-outputs": false,
-        "theme_path": "Papirus-Dark",
-        "on-click-middle": "close",
-        "tooltip-format": "{title}",
-        "ignore-list": ["spotify", "Qalculate!", "Bitwarden", "File Manager", "Mixer"],
-        "on-click": "activate",
-        "rewrite": {
-          "^(.{20}).*$": "$1… "  // This matches anything over 30 characters and adds an ellipsis
-        }
-    }
-
 }

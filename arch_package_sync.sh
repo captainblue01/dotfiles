@@ -14,6 +14,7 @@ official_packages=(
   # Hyprland
   hyprland
   hypridle
+  waybar
   hyprlock
   hyprpolkitagent
   hyprpaper
@@ -27,6 +28,7 @@ official_packages=(
   file-roller
   zip 
   alacritty 
+ bluetui
   brightnessctl
   bluez
   bluez-utils
@@ -34,8 +36,8 @@ official_packages=(
   gnome-keyring 
   gvfs
   gvfs-smb
-  neofetch 
   neovim 
+  tree-sitter-cli
   thunar
   pulsemixer
   pavucontrol
@@ -98,7 +100,6 @@ official_packages=(
   libreoffice-fresh
   thunderbird
   firefox 
-  ttyper
 
   # LF Support
   ueberzugpp
