@@ -76,7 +76,7 @@
             "update-active-window": true,
             "format": "{icon} {title:.22}",
             "icon-size": 18,
-            "on-click-window": "${SCRIPTS}/focus-window.sh {address} {button}"
+            "on-click-window": "${HOME}/.config/waybar/scripts/focus-window.sh {address} {button}"
         }
     },
 
