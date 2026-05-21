@@ -76,6 +76,8 @@ map("n", "<C-o>", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "
 map("n", "<leader>bp", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous Buffer" }))
 
 map("n", "<C-p>", "<cmd>bnext<CR>", vim.tbl_extend("force", opts, { desc = "Next Buffer" }))
+map("n", "<C-w>", ":Bdelete<CR>", vim.tbl_extend("force", opts, { desc = "Kill Buffer" }))
+map("n", "<C-c>", ":Bdelete<CR>", vim.tbl_extend("force", opts, { desc = "Kill Buffer" }))
 map("n", "<leader>bn", "<cmd>bnext<CR>", vim.tbl_extend("force", opts, { desc = "Next Buffer" }))
 
 map("n", "<CS-TAB>", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous Buffer" }))

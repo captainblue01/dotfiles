@@ -7,5 +7,9 @@ return {
       "mbbill/undotree",
       cond = not vim.g.vscode,
   },
+  {
+		"famiu/bufdelete.nvim",
+		cond = not vim.g.vscode,
+	},
 }
 
