@@ -11,7 +11,7 @@ for i = 1, 6 do
 end
 
 hl.workspace_rule({
-  workspace = "7",
+  workspace = "name:Win",
   default_name = "Win",
 })
 
@@ -61,18 +61,18 @@ hl.workspace_rule({
   border_size = 1,
 })
 
-hl.workspace_rule({
-  workspace = "special:audio_mixer",
-  on_created_empty = "alacritty",
-  gaps_out = 300,
-  border_size = 1,
-})
+hl.workspace_rule({ workspace = "special:audio_mixer", on_created_empty = "[float] alacritty" })
 
 hl.workspace_rule({
   workspace = "special:terminal",
   on_created_empty = apps.terminalDropDown,
   gaps_out = 200,
   border_size = 1,
+})
+
+hl.workspace_rule({
+  workspace = "special:testterm",
+  on_created_empty = "alacritty",
 })
 
 hl.workspace_rule({
@@ -171,19 +171,19 @@ hl.window_rule({
 -- WINDOW RULES
 ------------------
 
-hl.window_rule({
-  match = { class = ".*" },
-  suppress_event = "maximize",
-})
-
-hl.window_rule({
-  match = {
-    class = "^$",
-    title = "^$",
-    xwayland = true,
-    float = true,
-    fullscreen = false,
-    pin = false,
-  },
-  no_focus = true,
-})
+-- hl.window_rule({
+--   match = { class = ".*" },
+--   suppress_event = "maximize",
+-- })
+--
+-- hl.window_rule({
+--   match = {
+--     class = "^$",
+--     title = "^$",
+--     xwayland = true,
+--     float = true,
+--     fullscreen = false,
+--     pin = false,
+--   },
+--   no_focus = true,
+-- })
