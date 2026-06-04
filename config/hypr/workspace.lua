@@ -61,18 +61,18 @@ hl.workspace_rule({
   border_size = 1,
 })
 
-hl.workspace_rule({ workspace = "special:audio_mixer", on_created_empty = "[float] alacritty" })
+hl.workspace_rule({ 
+  workspace = "special:audio_mixer", 
+  on_created_empty = apps.audioMixer,
+  gaps_out = 200,
+  border_size = 1,
+})
 
 hl.workspace_rule({
   workspace = "special:terminal",
   on_created_empty = apps.terminalDropDown,
   gaps_out = 200,
   border_size = 1,
-})
-
-hl.workspace_rule({
-  workspace = "special:testterm",
-  on_created_empty = "alacritty",
 })
 
 hl.workspace_rule({

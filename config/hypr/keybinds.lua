@@ -247,6 +247,7 @@ for i = 1, 9 do
     mainMod .. " + " .. i,
     hl.dsp.focus({
       workspace = i,
+    on_current_monitor = true
     })
   )
 
@@ -263,6 +264,7 @@ hl.bind(
   mainMod .. " + 0",
   hl.dsp.focus({
     workspace = 10,
+    on_current_monitor = true
   })
 )
 
@@ -270,6 +272,7 @@ hl.bind(
   mainMod .. " + Q",
   hl.dsp.focus({
     workspace = 11,
+    on_current_monitor = true
   })
 )
 
@@ -277,6 +280,7 @@ hl.bind(
   mainMod .. " + W",
   hl.dsp.focus({
     workspace = 12,
+    on_current_monitor = true
   })
 )
 
@@ -284,6 +288,7 @@ hl.bind(
   mainMod .. " + E",
   hl.dsp.focus({
     workspace = 13,
+    on_current_monitor = true
   })
 )
 
