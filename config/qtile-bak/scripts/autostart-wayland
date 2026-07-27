@@ -5,6 +5,7 @@ wl-paste --watch cliphist store &
 dunst &
 nextcloud --background &
 slimbookbattery --minimize &
+foot -s &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=qtile
 systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
 systemctl --user start wireplumber

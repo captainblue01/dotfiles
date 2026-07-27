@@ -1,3 +1,31 @@
+local m = {
+	{
+		"navarasu/onedark.nvim",
+		cond = not vim.g.vscode,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cond = not vim.g.vscode,
+	},
+	{
+		"goolord/alpha-nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cond = not vim.g.vscode,
+	},
+	{
+		"folke/which-key.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons", "nvim-tree/nvim-web-devicons" },
+		cond = not vim.g.vscode,
+	},
+  {
+    "nvchad/nvim-colorizer.lua",
+    cond = not vim.g.vscode,
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+}
 local colors = {
 	bg = "#222224",
 	bg1 = "#28282A",
@@ -37,37 +65,6 @@ local function spacer()
 	return "◉"
 end
 
-local m = {
-	{
-		"navarasu/onedark.nvim",
-		cond = not vim.g.vscode,
-	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		cond = not vim.g.vscode,
-	},
-	{
-		"goolord/alpha-nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		cond = not vim.g.vscode,
-	},
-  {
-    "famiu/bufdelete.nvim",
-    cond = not vim.g.vscode,
-  },
-	{
-		"folke/which-key.nvim",
-		cond = not vim.g.vscode,
-	},
-  {
-    "nvchad/nvim-colorizer.lua",
-    cond = not vim.g.vscode,
-    config = function()
-      require("colorizer").setup()
-    end,
-  },
-}
 
 m[1].config = function()
 	require("onedark").setup({
@@ -241,7 +238,6 @@ m[3].config = function()
 		dashboard.button("e", "    New file", ":ene <BAR> startinsert <CR>"),
 		dashboard.button("spc  E", "󱏒    Open File Manager", "<cmd>lua require('lf').start()<cr>"),
 		dashboard.button("spc ff", "    Find file", "<cmd>Telescope find_files hidden=true<CR>"),
-		dashboard.button("spc fp", "    Find project", "<cmd>Telescope projects <CR>"),
 		dashboard.button("spc fr", "󰁯    Recently used files", "<cmd>Telescope oldfiles <CR>"),
 		dashboard.button("spc ft", "    Find text", "<cmd>Telescope live_grep <CR>"),
 		dashboard.button("u", "    Update plugins", "<cmd>TSUpdate<CR><cmd>MasonUpdate<CR><CMD>Lazy update<CR>"),
@@ -250,7 +246,7 @@ m[3].config = function()
 
 	local function footer()
 		return {
-			[[   Brodie Henry 2024   ]],
+			[[   Brodie Henry 2026   ]],
 		}
 	end
 
@@ -270,4 +266,51 @@ m[3].config = function()
 	alpha.setup(dashboard.opts)
 end
 
+m[4].config = function ()
+  local which_key = require("which-key")
+  which_key.setup({
+    key_labels = {["<leader>"] = "SPC"},
+  })
+  local group_names = require("keymaps").group_names
+  -- table.insert(group_names, { g = { name = "g Prefix" }, z = { name = "z Prefix" } })
+ 	which_key.add(group_names)
+  
+end
+
+
+-- Checking for issues with your mappings ~
+-- - ⚠️ WARNING You're using an old version of the which-key spec.
+--   Your mappings will work, but it's recommended to update them to the new version.
+--   Please check the docs and suggested spec below for more info.
+--   Mappings: >
+--   { 
+--   { "<leader>s", group = "Splits" }, 
+--   { "<leader>b", group = "Buffers" }, 
+--   { "<leader>w", group = "Save" }, 
+--   { "<leader>q", group = "Quit"
+--
+--     }, {
+--       g = {
+--         name = "g Prefix"
+--       },
+--       z = {
+--         name = "z Prefix"
+--       }
+--     },
+--     mode = "n",
+--     noremap = true,
+--     nowait = true,
+--     prefix = "<leader>",
+--     silent = true
+--   }
+--
+--   -- Suggested Spec:
+--   {
+--     { "<leader>", group = "Buffers", nowait = true, remap = false },
+--     { "<leader>", group = "Quit", nowait = true, remap = false },
+--     { "<leader>", group = "Splits", nowait = true, remap = false },
+--     { "<leader>", group = "Save", nowait = true, remap = false },
+--     { "<leader>g", group = "g Prefix", nowait = true, remap = false },
+--     { "<leader>z", group = "z Prefix", nowait = true, remap = false },
+--   }
 return m

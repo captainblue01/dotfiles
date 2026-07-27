@@ -18,6 +18,9 @@ map({ "n", "i", "v", "x" }, "<F1>", "<Nop>", opts)
 map("i", "<C-BS>", "<C-W>", opts)
 map("n", "<C-Backspace>", "daw", opts)
 
+-- Windows
+pcall(vim.keymap.del, "n", "<C-w>d")
+pcall(vim.keymap.del, "n", "<C-w><C-d>")
 
 -- Window resizing
 map("n", "<CS-up>", "<cmd>resize +2<CR>", opts)
@@ -62,7 +65,7 @@ map("x", "<C-up>", ":move '<-2<CR>gv-gv", opts)
 
 
 -- Splits
-table.insert(group_names, { "<leader>s", group = "Splits" })
+table.insert(group_names, { "<leader>s", group = "Splits", nowait = true, remap = false })
 
 map("n", "<leader>sv", "<cmd>vsplit<CR>", vim.tbl_extend("force", opts, { desc = "Vertical Split" }))
 map("n", "<leader>sh", "<cmd>split<CR>", vim.tbl_extend("force", opts, { desc = "Horizontal Split" }))
@@ -70,24 +73,28 @@ map("n", "<leader>sk", "<C-w>c", vim.tbl_extend("force", opts, { desc = "Window 
 
 
 -- Buffers
-table.insert(group_names, { "<leader>b", group = "Buffers" })
+table.insert(group_names, { "<leader>b", group = "Buffers" , nowait = true, remap = false })
 
 map("n", "<C-o>", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous Buffer" }))
 map("n", "<leader>bp", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous Buffer" }))
 
 map("n", "<C-p>", "<cmd>bnext<CR>", vim.tbl_extend("force", opts, { desc = "Next Buffer" }))
-map("n", "<C-w>", ":Bdelete<CR>", vim.tbl_extend("force", opts, { desc = "Kill Buffer" }))
-map("n", "<C-c>", ":Bdelete<CR>", vim.tbl_extend("force", opts, { desc = "Kill Buffer" }))
 map("n", "<leader>bn", "<cmd>bnext<CR>", vim.tbl_extend("force", opts, { desc = "Next Buffer" }))
 
 map("n", "<CS-TAB>", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous Buffer" }))
 map("n", "<C-PageUp>", "<cmd>bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous Buffer" }))
 map("n", "<C-PageDown>", "<cmd>bnext<CR>", vim.tbl_extend("force", opts, { desc = "Next Buffer" }))
 
+map("n", "<leader>bd",        
+  function() 
+    Snacks.bufdelete.delete() 
+  end, 
+  vim.tbl_extend("force", opts, { desc = "Close Buffer" }))
+
 
 -- Save / Quit
-table.insert(group_names, { "<leader>w", group = "Save" })
-table.insert(group_names, { "<leader>q", group = "Quit" })
+table.insert(group_names, { "<leader>w", group = "Save" , nowait = true, remap = false })
+table.insert(group_names, { "<leader>q", group = "Quit" , nowait = true, remap = false })
 
 map("n", "<leader>wa", "<cmd>wa<CR>", vim.tbl_extend("force", opts, { desc = "Save all" }))
 map("n", "<leader>ww", "<cmd>w<CR>", vim.tbl_extend("force", opts, { desc = "Save" }))
@@ -96,55 +103,5 @@ map("n", "<leader>qq", "<cmd>xa<CR><cmd>qa<CR>", vim.tbl_extend("force", opts, {
 map("n", "<leader>qQ", "<cmd>qa!<CR>", vim.tbl_extend("force", opts, { desc = "Quit without saving" }))
 map("n", "<leader>Q", "<cmd>qa!<CR>", vim.tbl_extend("force", opts, { desc = "Quit without saving" }))
 
-
--- =========================================================
--- NOTE: keymaps.lua should contain GLOBAL editor keymaps.
---
--- Plugin specific mappings should live in:
---   • plugin config (lazy.nvim spec)
---   • plugin on_attach callbacks
---   • LspAttach autocmd
---
--- The mappings moved to comments below are reminders of
--- where they should be reimplemented.
--- =========================================================
-
--- =========================================================
--- PLUGIN KEYMAPS (MOVED OUT OF GLOBAL CONFIG)
--- Implement these inside plugin configs instead.
--- =========================================================
-
--- File explorers
--- <leader>e  -> NvimTreeToggle
--- <leader>E  -> require("lf").start()
-
--- Buffer plugins
--- <leader>bk -> Bdelete (bufdelete.nvim)
--- <leader>bs -> Telescope buffers
--- <leader>b1..b9 / <C-1..9> -> BufferLineGoToBuffer
-
--- Execute tools
--- <leader>xe -> lf file manager
--- <leader>xg -> lazygit toggle term
-
--- Run code
--- <leader>rp -> python runner
--- <leader>rl -> lua runner
--- <leader>rm -> MarkdownPreview
-
--- Find (Telescope)
--- <leader>ff -> find_files
--- <leader>ft -> live_grep
--- <leader>fh -> help_tags
--- <leader>fr -> oldfiles
--- <leader>f/ -> current_buffer_fuzzy_find
--- <leader>fp -> telescope projects (removed project.nvim)
-
--- LSP mappings
--- Should live in LspAttach autocmd (not global keymaps.lua)
-
--- Docs
--- <leader>ld -> Neogen doc generator
-
-
+table.insert(group_names, { "<leader>a", group = "Claude" , nowait = true, remap = false })
 return { group_names = group_names }

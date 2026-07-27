@@ -128,8 +128,8 @@ class Groups:
             DropDown(
                 "calculator",
                 apps["calculator"],
-                opacity=0.75,
-                height=0.2,
+                opacity=0.95,
+                height=0.4,
                 width=0.3,
                 x=0.35,
                 y=0.0,

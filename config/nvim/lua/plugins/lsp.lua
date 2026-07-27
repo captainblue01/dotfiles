@@ -50,6 +50,7 @@ return {
           function(server_name)
             lspconfig[server_name].setup({
               capabilities = capabilities,
+              root_dir = lspconfig.util.find_git_ancestor,
             })
           end,
 

@@ -46,7 +46,7 @@ style = "Regular"
 [window]
 dynamic_padding = true
 padding = {x = 10, y = 10}
-opacity = 0.95
+opacity = 0.98
 
 [env]
 TERM="xterm-256color"
