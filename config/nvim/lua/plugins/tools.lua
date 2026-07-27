@@ -12,8 +12,27 @@ return {
     cond = not vim.g.vscode,
     priority = 1000,
     lazy = false,
-    config = {
-      bufdelete = {enabled = true}
+    opts = {
+      bufdelete = {enabled = true},
+      picker = {
+        sources = {
+          projects = {
+              dev = {
+                  "~/Projects",
+                  "~/Projects/Salesforce/",
+                  "~/Dotfiles"
+              },
+              projects = {
+                "~/Projects/brodie",
+                "~/Projects/3D",
+                "~/Projects/GEN_2_AUTOMATIONS/",
+                "~/Dotfiles/config/nvim",
+                "~/Dotfiles/config/qtile",
+                "~/Dotfiles/config/hyprland",
+              },
+            },
+        },
+      }
     },
     keys = {
       {
@@ -36,7 +55,14 @@ return {
           Snacks.bufdelete.delete()
         end,
         desc = "Delete buffer",
-      }
+      },
+      {
+        "<leader>fp",
+        function()
+          Snacks.picker.projects()
+        end,
+        desc = "Find Projects",
+      },
       },
     },
     {

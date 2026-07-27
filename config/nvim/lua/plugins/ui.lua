@@ -266,15 +266,19 @@ m[3].config = function()
 	alpha.setup(dashboard.opts)
 end
 
-m[4].config = function ()
+m[4].config = function()
   local which_key = require("which-key")
+
   which_key.setup({
-    key_labels = {["<leader>"] = "SPC"},
+    replace = {
+      key = {
+        { "<Space>", "SPC" },
+      },
+    },
   })
+
   local group_names = require("keymaps").group_names
-  -- table.insert(group_names, { g = { name = "g Prefix" }, z = { name = "z Prefix" } })
- 	which_key.add(group_names)
-  
+  which_key.add(group_names)
 end
 
 
