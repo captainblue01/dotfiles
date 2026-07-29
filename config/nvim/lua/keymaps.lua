@@ -43,6 +43,12 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+-- Window navigation from terminal mode (e.g. Snacks terminal)
+map("t", "<C-left>", "<C-\\><C-n><C-w>h", opts)
+map("t", "<C-down>", "<C-\\><C-n><C-w>j", opts)
+map("t", "<C-up>", "<C-\\><C-n><C-w>k", opts)
+map("t", "<C-right>", "<C-\\><C-n><C-w>l", opts)
+
 
 -- Visual indent
 map("v", "<", "<gv", opts)
@@ -104,4 +110,5 @@ map("n", "<leader>qQ", "<cmd>qa!<CR>", vim.tbl_extend("force", opts, { desc = "Q
 map("n", "<leader>Q", "<cmd>qa!<CR>", vim.tbl_extend("force", opts, { desc = "Quit without saving" }))
 
 table.insert(group_names, { "<leader>a", group = "Claude" , nowait = true, remap = false })
+table.insert(group_names, { "<leader>h", group = "Git Hunks" , nowait = true, remap = false })
 return { group_names = group_names }
