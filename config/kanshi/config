@@ -8,4 +8,8 @@ profile {
   output eDP-1 enable mode 1920x1200@60.002 position 0,418
   exec ~/.config/kanshi/set_profile.sh "1" "1"
 }
-
+profile {
+  output DP-2 enable mode 2560x1440@143.912 position 1080,260
+	output HDMI-A-2 enable mode 1920x1080@74.973 transform 90 position 0,0
+  exec ~/.config/kanshi/set_profile.sh "2" "1"
+}
