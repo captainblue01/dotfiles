@@ -10,6 +10,12 @@ local function reset()
   return hl.dsp.submap("reset")
 end
 
+-- Workaround for on_current_monitor breaking workspace_back_and_forth:
+-- https://github.com/hyprwm/Hyprland/discussions/14591
+local function focusWorkspaceOnCurrentMonitor(n)
+  return exec("$HOME/.config/hypr/scripts/workspace-focus.sh " .. n)
+end
+
 ------------------
 -- APP LAUNCH MODE
 ------------------
@@ -245,10 +251,7 @@ for i = 1, 9 do
 
   hl.bind(
     mainMod .. " + " .. i,
-    hl.dsp.focus({
-      workspace = i,
-    on_current_monitor = true
-    })
+    focusWorkspaceOnCurrentMonitor(i)
   )
 
   hl.bind(
@@ -262,34 +265,22 @@ end
 
 hl.bind(
   mainMod .. " + 0",
-  hl.dsp.focus({
-    workspace = 10,
-    on_current_monitor = true
-  })
+  focusWorkspaceOnCurrentMonitor(10)
 )
 
 hl.bind(
   mainMod .. " + Q",
-  hl.dsp.focus({
-    workspace = 11,
-    on_current_monitor = true
-  })
+  focusWorkspaceOnCurrentMonitor(11)
 )
 
 hl.bind(
   mainMod .. " + W",
-  hl.dsp.focus({
-    workspace = 12,
-    on_current_monitor = true
-  })
+  focusWorkspaceOnCurrentMonitor(12)
 )
 
 hl.bind(
   mainMod .. " + E",
-  hl.dsp.focus({
-    workspace = 13,
-    on_current_monitor = true
-  })
+  focusWorkspaceOnCurrentMonitor(13)
 )
 
 hl.bind(
