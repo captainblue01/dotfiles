@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Wayland and clipboard configuration
-export WAYLAND_DISPLAY=wayland-0
-export QT_QPA_PLATFORM=wayland
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
-
 kanshi &
 wl-paste --watch cliphist store &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -12,6 +7,12 @@ dunst &
 nextcloud --background &
 slimbookbattery --minimize &
 foot -s &
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=qtile ELECTRON_OZONE_PLATFORM_HINT=wayland
-systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+
+dbus-update-activation-environment --systemd \
+  WAYLAND_DISPLAY \
+  DISPLAY \
+  XDG_SESSION_TYPE \
+  XDG_CURRENT_DESKTOP=qtile
+
+systemctl --user stop pipewire wireplumber
 systemctl --user start wireplumber

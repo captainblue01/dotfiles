@@ -12,4 +12,4 @@ if [ -z "$new_name" ]; then
 fi
 
 # Send the command to rename the workspace
-hyprctl dispatch renameworkspace "$current_workspace_id $current_workspace_id:$new_name"
+hyprctl dispatch "hl.dsp.workspace.rename({workspace=$current_workspace_id, name=\"$current_workspace_id:$new_name\"})"
